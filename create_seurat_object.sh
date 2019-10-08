@@ -3,7 +3,9 @@
 #SBATCH --mem=40G
 #SBATCH --output=create_seurat_object.out
 #SBATCH --error=create_seurat_object.err
-#SBATCH --jobname=create_seurat_object
+#SBATCH --job-name=create_seurat_object
+
+module load R
 
 cd1col1="$1"
 cd1col2="$2"
