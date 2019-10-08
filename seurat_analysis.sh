@@ -6,8 +6,9 @@
 #SBATCH --output=sctransform_output.out
 #SBATCH --job-name=sctransform_proper
 
+
 module load rstudio
 module load python/3.5.2
-pip install umap-learn 
+pip install umap-learn
 
 Rscript sctransform_pca_umap.R
