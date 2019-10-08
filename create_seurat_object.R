@@ -58,12 +58,12 @@ for (i in 1:3) {
     rownames(bm_rawdat_temp) <- mygeneinfo_s_uni_temp$hgnc_symbol
     rm(mygeneinfo_s_uni_temp)
     
-    SObject_temp <- CreateSeuratObject(bmrawdat_temp, min.cells = 3, min.features = 200, 
+    SObject_temp <- CreateSeuratObject(bm_rawdat_temp, min.cells = 3, min.features = 200, 
       project = paste0("CD", i, "col", j))
     
     assign(paste0("CD", i, "col", j, "SObj"), SObject_temp)
     
-    rm(bmrawdat_temp, SObject_temp)
+    rm(bm_rawdat_temp, SObject_temp)
   }
 }
 
