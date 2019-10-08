@@ -40,7 +40,8 @@ for (i in 1:3) {
     mygeneinfo_sort_temp <- mygeneinfo_temp[mygeneinfo_idsort_temp, ]
     rm(mygeneinfo_temp, mygeneinfo_idsort_temp)
     # get rid of duplicate ensembl IDs
-    mygeneinfo_s_uni_temp <- mygeneinfo_sort_temp[order(mygeneinfo_sort_temp$ensembl_gene_id)[!duplicated(mygeneinfo_sort_temp$ensembl_gene_id)]]
+    mygeneinfo_s_uni_temp <- mygeneinfo_sort_temp[order(mygeneinfo_sort_temp$ensembl_gene_id)[!duplicated(mygeneinfo_sort_temp$ensembl_gene_id)], 
+      ]
     rm(mygeneinfo_sort_temp)
     # deal with duplicate gene name/symbols (mostly ''s) by identifying the
     # duplicates and then creating a new gene name for them that is
