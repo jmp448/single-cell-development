@@ -6,7 +6,10 @@ library(Seurat)
 ### found at
 ### https://relorbany.github.io/Exp1_prelim_analysis/scCM_round1_lowpass_combined.html
 
-rawdata <- args
+rawdata <- c()
+for (i in 1:18) {
+  rawdata <- c(rawdata, args[i])
+}
 
 ## Combine all 18 collections into a single Seurat object First, read in the raw
 ## data for all collections
