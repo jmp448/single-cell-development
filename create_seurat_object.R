@@ -63,14 +63,19 @@ for (i in 1:3) {
     assign(paste0("CD", i, "col", j, "SObj"), SObject_temp)
     
     rm(bmrawdat_temp, SObject_temp)
-    
+  }
+}
+
+# Get rid of very large geneinfo from workspace
+rm(geneinfo)
+
+for (i in 1:3) {
+  for (j in 1:6) {
     SObject <- eval(as.name(paste0("CD", i, "col", j, "SObj")))
     
     demux_temp <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/fulldata/CD", 
       i, "/CD", i, "col", j, "/demux/hpCD", i, "col", j, "_demux.best"), header = T, 
       stringsAsFactors = F)
-    
-    # demux_temp <- demux_temp[-1,]
     
     m <- match(rownames(SObject@meta.data), demux_temp$BARCODE)
     if (any(is.na(m))) 
@@ -210,4 +215,51 @@ for (i in 1:3) {
   }
 }
 
-rm(geneinfo)
+# merge AFTER giving them individual and diffday labels
+all_cols_S <- merge(CD1col1_lbld, y = c(CD1col2_lbld, CD1col3_lbld, CD1col4_lbld, 
+  CD1col5_lbld, CD1col6_lbld, CD2col1_lbld, CD2col2_lbld, CD2col3_lbld, CD2col4_lbld, 
+  CD2col5_lbld, CD2col6_lbld, CD3col1_lbld, CD3col2_lbld, CD3col3_lbld, CD3col4_lbld, 
+  CD3col5_lbld, CD3col6_lbld), add.cell.ids = c("CD1col1", "CD1col2", "CD1col3", 
+  "CD1col4", "CD1col5", "CD1col6", "CD2col1", "CD2col2", "CD2col3", "CD2col4", 
+  "CD2col5", "CD2col6", "CD3col1", "CD3col2", "CD3col3", "CD3col4", "CD3col5", 
+  "CD3col6"), project = "scCM_round1_fulldata")
+
+# finally, i'll remove the individual Seurat objects for each col
+rm(list = ls(pattern = "lbld"))
+
+# now i want to subset so only the cells with an individual and a diffday are
+# being used (i.e. no mislabeled individuals on each collection and no doublets)
+Idents(all_cols_S) <- "diffday"
+# make diffday the relevant identity marker
+
+all_cols_noNA_S = subset(all_cols_S, idents = c("Day 1", "Day 3", "Day 5", "Day 7", 
+  "Day 11", "Day 15", "Day 0"))
+
+# I will make a 'sample' label in the metadata tag, which has the combined
+# individual and diffday information in the form: NAInd.Day# make a sample label
+
+# let's make a column that's a combo of individual and diffday
+all_cols_noNA_S$sample <- "IND.DAY"
+
+all_cols_noNA_S$sample <- paste0(all_cols_noNA_S$individual, ".", all_cols_noNA_S$diffday)
+
+# i will also add metadata info for percent mitochondrial genes
+all_cols_noNA_S[["percent.mito"]] <- PercentageFeatureSet(all_cols_noNA_S, pattern = "^MT-")
+
+# first, let's order the levels in a more intuitive way for diffday
+mydaylevels <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
+sc@meta.data$diffday <- factor(x = sc@meta.data$diffday, levels = mydaylevels)
+# for individual
+myindlevels <- c("NA19093", "NA18858", "NA18912", "NA18520", "NA18508", "NA18511")
+sc@meta.data$individual <- factor(x = sc@meta.data$individual, levels = myindlevels)
+# for sample
+mysamplelevels <- as.character(sc$sample)
+mysamplelevels <- mixedsort(mysamplelevels, decreasing = F)
+mysamplelevels <- unique(mysamplelevels)
+sc@meta.data$sample <- factor(sc@meta.data$sample, levels = mysamplelevels)
+
+# Assign colday to the cells
+sc$colday <- "colday"
+sc$colday <- substr(sc$orig.ident, 3, 3)
+
+saveRDS(sc, "/rds_objects/sc_fulldata.RDS")
