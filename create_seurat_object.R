@@ -8,8 +8,7 @@ library(Seurat)
 
 rawdata <- c()
 for (i in 1:18) {
-  print(i)
-  print(args[i])
+  rawdata <- c(rawdata, args[i])
 }
 
 ## Combine all 18 collections into a single Seurat object First, read in the raw
