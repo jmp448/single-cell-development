@@ -252,18 +252,20 @@ all_cols_noNA_S[["percent.mito"]] <- PercentageFeatureSet(all_cols_noNA_S, patte
 
 # first, let's order the levels in a more intuitive way for diffday
 mydaylevels <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
-sc@meta.data$diffday <- factor(x = sc@meta.data$diffday, levels = mydaylevels)
+all_cols_noNA_S@meta.data$diffday <- factor(x = all_cols_noNA_S@meta.data$diffday, 
+  levels = mydaylevels)
 # for individual
 myindlevels <- c("NA19093", "NA18858", "NA18912", "NA18520", "NA18508", "NA18511")
-sc@meta.data$individual <- factor(x = sc@meta.data$individual, levels = myindlevels)
+all_cols_noNA_S@meta.data$individual <- factor(x = all_cols_noNA_S@meta.data$individual, 
+  levels = myindlevels)
 # for sample
-mysamplelevels <- as.character(sc$sample)
+mysamplelevels <- as.character(all_cols_noNA_S$sample)
 mysamplelevels <- mixedsort(mysamplelevels, decreasing = F)
 mysamplelevels <- unique(mysamplelevels)
-sc@meta.data$sample <- factor(sc@meta.data$sample, levels = mysamplelevels)
+all_cols_noNA_S@meta.data$sample <- factor(all_cols_noNA_S@meta.data$sample, levels = mysamplelevels)
 
 # Assign colday to the cells
-sc$colday <- "colday"
-sc$colday <- substr(sc$orig.ident, 3, 3)
+all_cols_noNA_S$colday <- "colday"
+all_cols_noNA_S$colday <- substr(all_cols_noNA_S$orig.ident, 3, 3)
 
-saveRDS(sc, "/rds_objects/sc_fulldata.RDS")
+saveRDS(all_cols_noNA_S, "/rds_objects/sc_fulldata.RDS")
