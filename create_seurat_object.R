@@ -16,7 +16,7 @@ for (i in 1:18) {
 ## data for all collections
 
 ## Get gene ID info from biomart
-geneinfo <- readRDS("geneinfo.rds")
+geneinfo <- readRDS("./rds_objects/geneinfo.rds")
 
 for (i in 1:3) {
   for (j in 1:6) {
@@ -269,4 +269,4 @@ all_cols_noNA_S@meta.data$sample <- factor(all_cols_noNA_S@meta.data$sample, lev
 all_cols_noNA_S$colday <- "colday"
 all_cols_noNA_S$colday <- substr(all_cols_noNA_S$orig.ident, 3, 3)
 
-saveRDS(all_cols_noNA_S, "/rds_objects/sc_fulldata.RDS")
+saveRDS(all_cols_noNA_S, "./rds_objects/sc_fulldata.RDS")
