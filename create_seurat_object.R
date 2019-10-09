@@ -1,6 +1,7 @@
 args = commandArgs(trailingOnly = TRUE)
 library(stringr)
 library(Seurat)
+library(gtools)
 
 ### The following is, until the end, copied directly from Reem Elorbany's work
 ### found at
