@@ -11,7 +11,7 @@ create_plot_png <- function(plt, filename, w = 480, h = 480) {
 }
 
 # Upload seurat file
-sc <- readRDS("sc_fulldata.RDS")
+sc <- readRDS("./rds_objects/sc_fulldata.RDS")
 
 # Create a new seurat object for each cell line
 Idents(sc) <- "individual"
