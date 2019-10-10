@@ -1,4 +1,4 @@
 plots
 rds_objects
-create_seurat_object.err
-create_seurat_object.out
+*.err
+*.out
