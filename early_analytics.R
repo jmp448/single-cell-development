@@ -1,5 +1,7 @@
 # Create a series of barplots and violin plots to visualize the data before
 # processing
+library(Seurat)
+library(stringr)
 
 # Specify folder to put all plots
 plots_loc <- "./plots/"
