@@ -42,7 +42,7 @@ plt <- barplot(table(sc$colday), main = line_name)
 create_plot_png(plt, "colday_barplot_bulk.png")
 
 # Make cell count plots over time
-for (line in lines) {
+for (line in cell_lines) {
   # Identify line name even when subset is not working
   for (r in rownames(table(line$individual))) {
     line_count <- table(line$individual)[r]
