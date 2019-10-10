@@ -11,6 +11,10 @@ rawdata <- c()
 for (i in 1:18) {
   rawdata <- c(rawdata, args[i])
 }
+min_cells_per_gene = args[19]  # minimum num cells in which a gene must appear
+min_genes_per_cell = args[20]  # minimum num genes for a cell to be included
+cutoff_mito = args[21]  # wanna cut off cells w a certain percent mito?
+mito_threshold = args[22]  # what is the threshold for mito cutoff?
 
 ## Combine all 18 collections into a single Seurat object First, read in the raw
 ## data for all collections
@@ -62,8 +66,8 @@ for (i in 1:3) {
     rownames(bm_rawdat_temp) <- mygeneinfo_s_uni_temp$hgnc_symbol
     rm(mygeneinfo_s_uni_temp)
     
-    SObject_temp <- CreateSeuratObject(bm_rawdat_temp, min.cells = 3, min.features = 200, 
-      project = paste0("CD", i, "col", j))
+    SObject_temp <- CreateSeuratObject(bm_rawdat_temp, min.cells = min_cells_per_gene, 
+      min.features = min_genes_per_cell, project = paste0("CD", i, "col", j))
     
     assign(paste0("CD", i, "col", j, "SObj"), SObject_temp)
     
@@ -268,5 +272,9 @@ all_cols_noNA_S@meta.data$sample <- factor(all_cols_noNA_S@meta.data$sample, lev
 # Assign colday to the cells
 all_cols_noNA_S$colday <- "colday"
 all_cols_noNA_S$colday <- substr(all_cols_noNA_S$orig.ident, 3, 3)
+
+if (cutoff_mito) {
+  all_cols_noNA_S <- subset(all_cols_noNA_S, subset = percent.mito < mito_threshold)
+}
 
 saveRDS(all_cols_noNA_S, "./rds_objects/sc_fulldata.RDS")
