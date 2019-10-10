@@ -39,4 +39,4 @@ if true; then
                                     $mito_threshold
 fi
 
-# PART 2: 
+# PART 2: Perform visualizations on the data set

@@ -11,10 +11,17 @@ rawdata <- c()
 for (i in 1:18) {
   rawdata <- c(rawdata, args[i])
 }
+print(rawdata)
+
 min_cells_per_gene = args[19]  # minimum num cells in which a gene must appear
 min_genes_per_cell = args[20]  # minimum num genes for a cell to be included
 cutoff_mito = args[21]  # wanna cut off cells w a certain percent mito?
 mito_threshold = args[22]  # what is the threshold for mito cutoff?
+
+print(paste0("min cells per gene ", min_cells_per_gene))
+print(paste0("min genes per cell ", min_genes_per_cell))
+print(paste0("mito cutoff ", cutoff_mito))
+print(paste0("mito threshold ", mito_threshold))
 
 ## Combine all 18 collections into a single Seurat object First, read in the raw
 ## data for all collections
