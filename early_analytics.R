@@ -41,26 +41,14 @@ create_plot_png(plt, "indiv_barplot_bulk.png")
 plt <- barplot(table(sc$colday), main = line_name)
 create_plot_png(plt, "colday_barplot_bulk.png")
 
-# Make cell count plots over time
-for (line in cell_lines) {
-  # Identify line name even when subset is not working
-  for (r in rownames(table(line$individual))) {
-    line_count <- table(line$individual)[r]
-    if (line_count > 0) {
-      line_name = r
-    }
-  }
-  # Create plots for individual cell lines
-  plt <- barplot(table(line$diffday), main = line_name)
-  create_plot_png(plt, paste0("diffday_barplot_", line_name, ".png"), w = 1200, 
-    h = 500)
-  
-  plt <- barplot(table(line$colday), main = line_name)
-  create_plot_png(plt, paste0("colday_barplot_", line_name, ".png"), w = 1200, 
-    h = 500)
-  
-  Idents(line) <- "diffday"
-  plt <- VlnPlot(line, features = "percent.mito", pt.size = 0)
-  create_plot_png(plt, paste0("percentmito_vlnplot_", line_name, ".png"), w = 1200, 
-    h = 500)
-}
+# # Make cell count plots over time for (line in cell_lines) { # Identify line
+# name even when subset is not working for (r in
+# rownames(table(line$individual))) { line_count <- table(line$individual)[r] if
+# (line_count > 0) { line_name = r } } # Create plots for individual cell lines
+# plt <- barplot(table(line$diffday), main = line_name) create_plot_png(plt,
+# paste0('diffday_barplot_', line_name, '.png'), w = 1200, h = 500) plt <-
+# barplot(table(line$colday), main = line_name) create_plot_png(plt,
+# paste0('colday_barplot_', line_name, '.png'), w = 1200, h = 500) Idents(line)
+# <- 'diffday' plt <- VlnPlot(line, features = 'percent.mito', pt.size = 0)
+# create_plot_png(plt, paste0('percentmito_vlnplot_', line_name, '.png'), w =
+# 1200, h = 500) }
