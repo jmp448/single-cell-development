@@ -43,3 +43,8 @@ fi
 if false; then
    sbatch early_analytics.sh
 fi
+
+# PART 3: Monocle Analysis
+if false; then
+   Rscript install_monocle.R
+fi
