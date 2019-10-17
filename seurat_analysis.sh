@@ -31,7 +31,7 @@ min_genes_per_cell=200  # minimum num genes for a cell to be included
 cutoff_mito=false  # wanna cut off cells w a certain percent mito?
 mito_threshold=30  # what is the threshold for mito cutoff?
 
-if true; then
+if false; then
    sbatch create_seurat_object.sh $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 \
                                     $cd2col1 $cd2col2 $cd2col3 $cd2col4 $cd2col5 $cd2col6 \
                                     $cd3col1 $cd3col2 $cd3col3 $cd3col4 $cd3col5 $cd3col6 \
@@ -46,5 +46,6 @@ fi
 
 # PART 3: Monocle Analysis
 if false; then
-   Rscript install_monocle.R
+   bash install_monocle.sh
+   sbatch create_monocle_object.sh
 fi
