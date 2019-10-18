@@ -83,7 +83,7 @@ for (i in 1:3) {
 
     # Check that all cells were run through demuxlet
     if (any(is.na(m))) {
-      cat(paste0("Not all barcodes are in demuxlet data.", sum(is.na(m)), "barcodes are missing for CD", i, "col", j, "!\n"))
+      cat(paste0("Not all barcodes are in demuxlet data. ", sum(is.na(m)), " barcodes are missing for CD", i, "col", j, "!\n"))
       expression_matrix <- expression_matrix[,!is.na(m)]
       demux <- demux[!is.na(m),]
     }
@@ -233,6 +233,8 @@ for (i in 1:3) {
     rm(cds)
   }
 }
+
+save.image("monocle_construction_cds_all.RData")
 
 # merge AFTER giving them individual and diffday labels
 all_collections <- combine_cds(list(CD1col1_cds, CD1col2_cds, CD1col3_cds, CD1col4_cds,
