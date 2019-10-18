@@ -5,6 +5,8 @@
 #SBATCH --error=monocle_construction.err
 #SBATCH --job-name=monocle_construction
 
+module load R
+
 cd1col1="$1"
 cd1col2="$2"
 cd1col3="$3"
