@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --time=05:00:00
 #SBATCH --mem=40G
-#SBATCH --output=create_seurat_object.out
-#SBATCH --error=create_seurat_object.err
-#SBATCH --job-name=create_seurat_object
+#SBATCH --output=monocle_construction.out
+#SBATCH --error=monocle_construction.err
+#SBATCH --job-name=monocle_construction
 
 cd1col1="$1"
 cd1col2="$2"

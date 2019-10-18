@@ -112,9 +112,10 @@ for (i in 1:3) {
       stringsAsFactors = F)
 
     m <- match(rownames(SObject@meta.data), demux_temp$BARCODE)
-    if (any(is.na(m)))
+    if (any(is.na(m))) {
       cat(paste0("Not all barcodes are in demuxlet data. Something is wrong in CD",
         i, "col", j, "!\n"))
+    }
 
     demux_temp <- demux_temp[m, ]
 
