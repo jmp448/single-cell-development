@@ -13,13 +13,51 @@ min_genes_per_cell = args[20]  # minimum num genes for a cell to be included
 cutoff_mito = args[21]  # wanna cut off cells w a certain percent mito? (bool)
 mito_threshold = args[22]  # what is the threshold for mito cutoff?
 
+# Write a function for updating the matrix
+update_masters <- function (expression_master,
+  genes_master, cells_master, expression_matrix, genes_matrix, cell_metadata) {
+
+    # create new genes matrix
+    unseen_genes <- subset(genes_matrix, !(rownames(genes_matrix) %in% rownames(genes_master)))
+    overlap_genes <- subset(genes_matrix, rownames(genes_matrix) %in% rownames(genes_master))
+    new_genes_master <- rbind(genes_master, unseen_genes)
+
+    # create new cells matrix
+    new_cells_master <- rbind(cells_master, cell_metadata)
+
+    # create new expression matrix
+    new_expression_master <- expression_master
+
+    # add new genes into expression matrix
+    num_new_genes <- length(rownames(unseen_genes))
+    num_old_genes <- length(rownames(genes_master))
+    new_expression_master[(num_old_genes+1):(num_old_genes+num_new_genes),] <- 0
+    rownames(new_expression_master)[(num_old_genes+1):(num_old_genes+num_new_genes)]
+      <- rownames(unseen_genes)
+
+    # add new cells into expression matrix
+    num_new_cells <- length(rownames(cell_metadata))
+    num_old_cells <- length(rownames(cells_master))
+    new_expression_master[,(num_old_cells+1):(num_old_cells+num_new_cells)] <- 0
+    for (g in rownames(overlap_genes)) {
+      new_expression_master[g, (num_old_cells+1):(num_old_cells+num_new_cells)]
+        <- expression_matrix[g,]
+    }
+    for (g in rownames(new_genes)) {
+      new_expression_master[g, (num_old_cells+1):(num_old_cells+num_new_cells)]
+        <- expression_matrix[g,]
+    }
+
+    return(new_expression_master, new_genes_master, new_cells_master)
+}
+
 ## First, read in the raw data for all collections
 
 ## Get gene ID info from biomart
 geneinfo <- readRDS("./rds_objects/geneinfo.rds")
 
-for (i in 1:3) {
-  for (j in 1:6) {
+for (i in 1:1) {
+  for (j in 1:2) {
     # Read in raw data matrix
     expression_matrix <- read.table(rawdata[6 * (i - 1) + j], header = T, stringsAsFactors = F, row.names = 1)
 
@@ -219,31 +257,32 @@ for (i in 1:3) {
     properly_labeled <- cell_metadata$diffday != "NA"
     cell_metadata <- cell_metadata[non_doublets & properly_labeled,]
     expression_matrix <- expression_matrix[,non_doublets & properly_labeled]
+    rm(non_doublets, properly_labeled)
 
-    expression_sparse <- Matrix(as.matrix(expression_matrix), sparse=TRUE)
-    rm(expression_matrix, non_doublets, properly_labeled)
+    # Add collection identifier to each cell
+    for (i in length(rownames(cell_metadata))) {
+      rownames(cell_metadata)[i] = paste0(rownames(cell_metadata)[i], "_CD", i, "col", j)
+      colnames(expression_matrix)[i] = paste0(colnames(expression_matrix)[i], "_CD", i, "col", j)
+    }
 
-    cds <- new_cell_data_set(expression_sparse,
-                         cell_metadata = cell_metadata,
-                         gene_metadata = genes_matrix)
-
-    rm(expression_sparse, cell_metadata, genes_matrix)
-
-    assign(paste0("CD", i, "col", j, "_cds"), cds)
-    rm(cds)
+    if (i == 1 and j == 1) {
+      expression_master <- expression_matrix
+      genes_master <- genes_matrix
+      cells_master <- cell_metadata
+    } else {
+      expression_master, genes_master, cells_master <- update_masters(expression_master,
+        genes_master, cells_master, expression_matrix, genes_matrix, cell_metadata)
+    }
+    rm(expression_matrix, cell_metadata, genes_matrix)
   }
 }
+expression_sparse <- Matrix(as.matrix(expression_master), sparse=TRUE)
 
 save.image("monocle_construction_cds_all.RData")
 
-# merge AFTER giving them individual and diffday labels
-all_collections <- combine_cds(list(CD1col1_cds, CD1col2_cds, CD1col3_cds, CD1col4_cds,
-                              CD1col5_cds, CD1col6_cds, CD2col1_cds, CD2col2_cds,
-                              CD2col3_cds, CD2col4_cds, CD2col5_cds, CD2col6_cds,
-                              CD3col1_cds, CD3col2_cds, CD3col3_cds, CD3col4_cds,
-                              CD3col5_cds, CD3col6_cds))
+# create cell_data_set object
+cds <- new_cell_data_set(expression_master,
+  cell_metadata = cells_master,
+  gene_metadata = genes_master)
 
-# finally, i'll remove the individual cds objects for each col
-rm(list = ls(pattern = "cds"))
-
-saveRDS(all_collections, "./rds_objects/sc_fulldata_monocle.RDS")
+saveRDS(cds, "./rds_objects/sc_fulldata_monocle.RDS")
