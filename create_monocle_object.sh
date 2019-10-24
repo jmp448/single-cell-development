@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --time=05:00:00
-#SBATCH --mem=40G
+#SBATCH --mem=80G
+#SBATCH --partition=bigmem2
 #SBATCH --output=monocle_construction.out
 #SBATCH --error=monocle_construction.err
 #SBATCH --job-name=monocle_construction

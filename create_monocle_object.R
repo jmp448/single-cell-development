@@ -11,10 +11,10 @@ if (load_from_bash) {
   for (i in 1:18) {
     rawdata <- c(rawdata, args[i])
   }
-  min_cells_per_gene = args[19]  # minimum num cells in which a gene must appear
-  min_genes_per_cell = args[20]  # minimum num genes for a cell to be included
-  cutoff_mito = args[21]  # wanna cut off cells w a certain percent mito? (bool)
-  mito_threshold = args[22]  # what is the threshold for mito cutoff?
+  min_cells_per_gene <- args[19]  # minimum num cells in which a gene must appear
+  min_genes_per_cell <- args[20]  # minimum num genes for a cell to be included
+  cutoff_mito <- args[21]  # wanna cut off cells w a certain percent mito? (bool)
+  mito_threshold <- args[22]  # what is the threshold for mito cutoff?
 } else {
   rawdata <- c('/project2/gilad/reem/singlecellCM/round1/fulldata/CD1/CD1col1/output/dge_data/YG-RE-RE1-hpCD1col1_S1_gene_counts.tsv.gz',
                 '/project2/gilad/reem/singlecellCM/round1/fulldata/CD1/CD1col2/output/dge_data/YG-RE-RE2-hpCD1col2_S1_gene_counts.tsv.gz',
@@ -34,10 +34,10 @@ if (load_from_bash) {
                 '/project2/gilad/reem/singlecellCM/round1/fulldata/CD3/CD3col4/output/dge_data/YG-RE-RE1-hpCD3col4_S3_gene_counts.tsv.gz',
                 '/project2/gilad/reem/singlecellCM/round1/fulldata/CD3/CD3col5/output/dge_data/YG-RE-RE6-hpCD3col5_S3_gene_counts.tsv.gz',
                 '/project2/gilad/reem/singlecellCM/round1/fulldata/CD3/CD3col6/output/dge_data/YG-RE-RE5-hpCD3col6_S3_gene_counts.tsv.gz')
-  min_cells_per_gene = 3  # minimum num cells in which a gene must appear
-  min_genes_per_cell = 200  # minimum num genes for a cell to be included
-  cutoff_mito = FALSE  # wanna cut off cells w a certain percent mito? (bool)
-  mito_threshold = 30  # what is the threshold for mito cutoff?
+  min_cells_per_gene <- 3  # minimum num cells in which a gene must appear
+  min_genes_per_cell <- 200  # minimum num genes for a cell to be included
+  cutoff_mito <- FALSE  # wanna cut off cells w a certain percent mito? (bool)
+  mito_threshold <- 30  # what is the threshold for mito cutoff?
 }
 
 update_masters <- function(combined_expression, combined_genes, combined_cells, expression_matrix, genes_matrix, cell_metadata) {
