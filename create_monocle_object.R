@@ -3,7 +3,7 @@ library(Matrix)
 library(monocle3)
 library(tidyverse)
 
-load_from_bash<-F
+load_from_bash<-T
 
 if (load_from_bash) {
   args = commandArgs(trailingOnly = TRUE)
@@ -49,32 +49,32 @@ update_masters <- function(combined_expression, combined_genes, combined_cells, 
   num_overlap_genes <- length(overlap_genes)
   num_old_genes <- length(old_genes)
   combined_genes <- rbind(combined_genes, new_genes)
-  
+
   # sort appropriately for the new genes
   combined_genes %>% arrange(rownames(combined_genes))
-  
+
   # open up some space
   rm(genes_matrix)
   new_genes <- rownames(new_genes)
-  
+
   # create new cells matrix
   num_new_cells <- length(rownames(cell_metadata))
   num_old_cells <- length(rownames(combined_cells))
   combined_cells <- rbind(combined_cells, cell_metadata)
   rm(cell_metadata)
-  
+
   # add new genes into combined expression matrix
   combined_expression[(num_old_genes+num_overlap_genes+1):(num_old_genes+num_overlap_genes+num_new_genes),] <- 0
   rownames(combined_expression)[(num_old_genes+num_overlap_genes+1):(num_old_genes+num_overlap_genes+num_new_genes)] <- new_genes
-  
+
   # add old genes into new expression matrix
   expression_matrix[(num_new_genes+num_overlap_genes+1):(num_new_genes+num_overlap_genes+num_old_genes),] <- 0
   rownames(expression_matrix)[(num_new_genes+num_overlap_genes+1):(num_new_genes+num_overlap_genes+num_old_genes)] <- old_genes
-  
+
   # sort rows on both new and old before combination
   expression_matrix %>% arrange(rownames(expression_matrix))
   combined_expression %>% arrange(rownames(combined_expression))
-  
+
   # combine expression matrices
   combined_expression <- cbind(combined_expression, expression_matrix)
   masterlist <- list(combined_expression, combined_genes, combined_cells)
@@ -86,8 +86,8 @@ update_masters <- function(combined_expression, combined_genes, combined_cells, 
 ## Get gene ID info from biomart
 geneinfo <- readRDS("./rds_objects/geneinfo.rds")
 
-for (i in 1:1) {
-  for (j in 1:2) {
+for (i in 1:3) {
+  for (j in 1:6) {
     # Read in raw data matrix
     expression_matrix <- read.table(rawdata[6 * (i - 1) + j], header = T, stringsAsFactors = F, row.names = 1)
 
@@ -297,7 +297,7 @@ for (i in 1:1) {
       rownames(cell_metadata)[k] <- paste0(rownames(cell_metadata)[k], "_CD", i, "col", j)
       colnames(expression_matrix)[k] <- paste0(colnames(expression_matrix)[k], "_CD", i, "col", j)
     }
-    
+
     if (i == 1 & j == 1) {
       expression_master <- expression_matrix
       genes_master <- genes_matrix
