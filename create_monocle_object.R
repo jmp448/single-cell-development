@@ -303,7 +303,6 @@ for (i in 1:3) {
       genes_master <- genes_matrix
       cells_master <- cell_metadata
     } else {
-      save.image("./workspaces/monocle_construction_beforemerge.RData")
       master_list <- update_masters(expression_master,
         genes_master, cells_master, expression_matrix, genes_matrix, cell_metadata)
       expression_master <- master_list[[1]]
@@ -313,9 +312,10 @@ for (i in 1:3) {
     rm(expression_matrix, cell_metadata, genes_matrix)
   }
 }
-rm(i,j)
+rm(rawdata,i,j)
 
 expression_sparse <- Matrix(as.matrix(expression_master), sparse=TRUE)
+rm(expression_master)
 
 save.image("./workspaces/monocle_construction_cds_all.RData")
 
