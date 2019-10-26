@@ -67,7 +67,7 @@ for (i in 1:3) {
     expression_matrix <- expression_matrix[rownames(expression_matrix) %in% genes_present$ensembl_gene_id,]
 
     # sort genes by ensemblID (as they already are in genes_present)
-    expression_matrix <- expression_matrix[order(mygeneinfo_temp$ensembl_gene_id, decreasing = F),]
+    expression_matrix <- expression_matrix[order(rownames(expression_matrix), decreasing = F),]
     # get rid of duplicate ensembl IDs
     expression_matrix <- expression_matrix[!duplicated(rownames(expression_matrix)),]
 
