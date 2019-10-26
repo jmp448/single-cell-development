@@ -317,11 +317,11 @@ rm(rawdata,i,j)
 expression_sparse <- Matrix(as.matrix(expression_master), sparse=TRUE)
 rm(expression_master)
 
-save.image("./workspaces/monocle_construction_cds_all.RData")
+save.image("./workspaces/monocle_pre-cds_fulldata.RData")
 
 # create cell_data_set object
 cds <- new_cell_data_set(expression_sparse,
   cell_metadata = cells_master,
   gene_metadata = genes_master)
 
-saveRDS(cds, "./rds_objects/sc_fulldata_monocle.RDS")
+saveRDS(cds, "./rds_objects/monocle_cds_fulldata.RDS")

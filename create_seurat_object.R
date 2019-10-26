@@ -308,4 +308,4 @@ if (cutoff_mito) {
   all_cols_noNA_S <- subset(all_cols_noNA_S, subset = percent.mito < mito_threshold)
 }
 
-saveRDS(all_cols_noNA_S, "./rds_objects/sc_fulldata.RDS")
+saveRDS(all_cols_noNA_S, "./rds_objects/seurat_obj_fulldata.RDS")

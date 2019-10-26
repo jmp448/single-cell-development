@@ -7,7 +7,7 @@ create_plot_png <- function(plt, filename, w = 800, h = 600) {
   dev.off()
 }
 
-sc <- readRDS("./rds_objects/sc_fulldata_monocle.RDS")
+sc <- readRDS("./rds_objects/monocle_cds_fulldata.RDS")
 
 sc <- preprocess_cds(sc, method="PCA", norm_method="log", scaling=T, verbose=T)
 sc <- reduce_dimension(sc, verbose=T, preprocess_method="PCA")
