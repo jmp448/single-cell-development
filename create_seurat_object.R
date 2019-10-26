@@ -71,7 +71,7 @@ for (i in 1:3) {
     # get rid of duplicate ensembl IDs
     expression_matrix <- expression_matrix[!duplicated(rownames(expression_matrix)),]
 
-    if !identical(rownames(expression_matrix), genes_present$ensemblID) {
+    if (!identical(rownames(expression_matrix), genes_present$ensemblID)) {
       print("Look at line 75: expression matrix rownames and genes_present don't match")
       print("Here's the beginning of expression matrix:")
       print(head(expression_matrix))
