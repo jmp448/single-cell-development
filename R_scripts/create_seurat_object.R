@@ -18,8 +18,9 @@ if (load_from_bash) {
   min_cells_per_gene = args[19]  # minimum num cells in which a gene must appear
   min_genes_per_cell = args[20]  # minimum num genes for a cell to be included
   mito_threshold = args[21]  # what is the threshold for mito cutoff?
+  source_files = args[22]
 } else {
-  # If running this file directly in R, ie not using the bash files
+  # If running this file directly in R, ie not using the bash files, here's the full data
   rawdata <- c('/project2/gilad/reem/singlecellCM/round1/fulldata/CD1/CD1col1/output/dge_data/YG-RE-RE1-hpCD1col1_S1_gene_counts.tsv.gz',
                 '/project2/gilad/reem/singlecellCM/round1/fulldata/CD1/CD1col2/output/dge_data/YG-RE-RE2-hpCD1col2_S1_gene_counts.tsv.gz',
                 '/project2/gilad/reem/singlecellCM/round1/fulldata/CD1/CD1col3/output/dge_data/YG-RE-RE3-hpCD1col3_S1_gene_counts.tsv.gz',
@@ -40,7 +41,7 @@ if (load_from_bash) {
                 '/project2/gilad/reem/singlecellCM/round1/fulldata/CD3/CD3col6/output/dge_data/YG-RE-RE5-hpCD3col6_S3_gene_counts.tsv.gz')
   min_cells_per_gene = 3  # minimum num cells in which a gene must appear
   min_genes_per_cell = 200  # minimum num genes for a cell to be included
-  cutoff_mito = FALSE  # wanna cut off cells w a certain percent mito? (bool)
+  # cutoff_mito = FALSE  # wanna cut off cells w a certain percent mito? (bool)
   mito_threshold = 30  # what is the threshold for mito cutoff?
 }
 
@@ -111,9 +112,15 @@ for (i in 1:3) {
   for (j in 1:6) {
     SObject <- eval(as.name(paste0("CD", i, "col", j, "SObj")))
 
-    demux_temp <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/fulldata/CD",
-      i, "/CD", i, "col", j, "/demux/hpCD", i, "col", j, "_demux.best"), header = T,
-      stringsAsFactors = F)
+    if (source_files == "fulldata") {
+      demux_temp <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/fulldata/CD",
+        i, "/CD", i, "col", j, "/demux/hpCD", i, "col", j, "_demux.best"), header = T,
+        stringsAsFactors = F)
+    } else if (source_files == "lowpass") {
+      demux_temp <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/lowpass/CD",
+        i, "/CD", i, "col", j, "/demux/CD", i, "col", j, "_demux.best"), header = T,
+        stringsAsFactors = F)
+    }
 
     m <- match(rownames(SObject@meta.data), demux_temp$BARCODE)
     if (any(is.na(m))) {
@@ -303,8 +310,7 @@ all_cols_noNA_S@meta.data$sample <- factor(all_cols_noNA_S@meta.data$sample, lev
 all_cols_noNA_S$colday <- "colday"
 all_cols_noNA_S$colday <- substr(all_cols_noNA_S$orig.ident, 3, 3)
 
-if (cutoff_mito) {
-  all_cols_noNA_S <- subset(all_cols_noNA_S, subset = percent.mito < mito_threshold)
-}
+all_cols_noNA_S <- subset(all_cols_noNA_S, subset = percent.mito < mito_threshold)
 
-saveRDS(all_cols_noNA_S, "./rds_objects/seurat_obj_fulldata.RDS")
+
+saveRDS(all_cols_noNA_S, paste0("./rds_objects/seurat_obj_", source_files, ".RDS")
