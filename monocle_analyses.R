@@ -2,7 +2,7 @@ library(monocle3)
 
 # Create method for producing and saving plots
 plots_loc <- "./monocle_plots/"
-create_plot_png <- function(plt, filename, w = 800, h = 600, plt_title=NA) {
+create_plot_png <- function(plt, filename, w=800, h=600, plt_title=NA) {
   if (!is.na(plt_title)) {
     plt <- plt + title(main=plt_title)
   }
@@ -31,12 +31,13 @@ plt <- plot_cells(sc2, label_cell_groups=F, color_cells_by="diffday")
 create_plot_png(plt, filename="umap_plot_diffday.png")
 plt <- plot_cells(sc2, label_cell_groups=F, color_cells_by="individual")
 create_plot_png(plt, filename="umap_plot_indiv.png")
-saveRDS(sc2, "monocle_cds_fulldata_processed_collection.RDS")
+saveRDS(sc2, "./rds_objects/monocle_cds_fulldata_processed_seuratlike.RDS")
 rm(sc2)
 
 # Try to regress out sample batch effects
 # Attempt 1: regress out collection
-sc2 <- preprocess_cds(sc, method="PCA", norm_method="log", alignment_group="collection")
+sc2 <- preprocess_cds(sc, method="PCA", norm_method="log")
+sc2 <- align_cds(sc2, preprocess_method="PCA", alignment_group="collection")
 sc2 <- reduce_dimension(sc2, preprocess_method="PCA", umap.min_dist=0.3, umap.n_neighbors=30L)
 plt <- plot_cells(sc2, label_cell_groups=F, color_cells_by="collection")
 create_plot_png(plt, filename="umap_reg_sample_plot_sample.png")
@@ -44,11 +45,12 @@ plt <- plot_cells(sc2, label_cell_groups=F, color_cells_by="diffday")
 create_plot_png(plt, filename="umap_reg_sample_plot_diffday.png")
 plt <- plot_cells(sc2, label_cell_groups=F, color_cells_by="individual")
 create_plot_png(plt, filename="umap_reg_sample_plot_indiv.png")
-saveRDS(sc2, "monocle_cds_fulldata_processed_collection.RDS")
+saveRDS(sc2, "./rds_objects/monocle_cds_fulldata_processed_collection.RDS")
 rm(sc2)
 
 # Attempt 2: regress out collection day
-sc2 <- preprocess_cds(sc, method="PCA", norm_method="log", alignment_group="colday")
+sc2 <- preprocess_cds(sc, method="PCA", norm_method="log")
+sc2 <- align_cds(sc2, preprocess_method="PCA", alignment_group="colday")
 sc2 <- reduce_dimension(sc2, preprocess_method="PCA", umap.min_dist=0.3, umap.n_neighbors=30L)
 plt <- plot_cells(sc2, label_cell_groups=F, color_cells_by="collection")
 create_plot_png(plt, filename="umap_reg_colday_plot_sample.png")
@@ -56,5 +58,5 @@ plt <- plot_cells(sc2, label_cell_groups=F, color_cells_by="diffday")
 create_plot_png(plt, filename="umap_reg_colday_plot_diffday.png")
 plt <- plot_cells(sc2, label_cell_groups=F, color_cells_by="individual")
 create_plot_png(plt, filename="umap_reg_colday_plot_indiv.png")
-saveRDS(sc2, "monocle_cds_fulldata_processed_colday.RDS")
+saveRDS(sc2, "./rds_objects/monocle_cds_fulldata_processed_colday.RDS")
 rm(sc2)
