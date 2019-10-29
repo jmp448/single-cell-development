@@ -312,5 +312,4 @@ all_cols_noNA_S$colday <- substr(all_cols_noNA_S$orig.ident, 3, 3)
 
 all_cols_noNA_S <- subset(all_cols_noNA_S, subset = percent.mito < mito_threshold)
 
-
-saveRDS(all_cols_noNA_S, paste0("./rds_objects/seurat_obj_", source_files, ".RDS")
+saveRDS(all_cols_noNA_S, paste0("./rds_objects/seurat_obj_", source_files, ".RDS"))
