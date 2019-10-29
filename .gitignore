@@ -1,7 +1,6 @@
 seurat_plots
 rds_objects
-*.err
-*.out
 combine_cds_troubleshoot
 workspaces
 monocle_plots
+Rplots.pdf
