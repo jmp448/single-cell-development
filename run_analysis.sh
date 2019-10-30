@@ -56,7 +56,7 @@ min_genes_per_cell=200  # minimum num genes for a cell to be included
 #TODO incorporate mito threshold boolean into pipeline
 mito_threshold=30  # what is the percentage threshold cutoff for mito counts?
 
-if false; then
+if true; then
    rm ./error_files/create_seurat_object.out
    rm ./error_files/create_seurat_object.err
    sbatch ./bash_scripts/create_seurat_object.sh $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 \
@@ -89,7 +89,7 @@ if false; then
    # sbatch ./bash_scripts/seurat_dimreduc.sh
 fi
 
-if true; then
+if false; then
    rm ./error_files/seurat_visualizations.err
    rm ./error_files/seurat_visualizations.out
    sbatch ./bash_scripts/seurat_visualizations.sh

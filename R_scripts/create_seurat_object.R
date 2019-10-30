@@ -13,12 +13,14 @@ if (load_from_bash) {
   rawdata <- c()
   for (i in 1:18) {
     rawdata <- c(rawdata, args[i])
+    print(paste0("raw data file number ", i, " is found at ", args[i]))
   }
 
   min_cells_per_gene = args[19]  # minimum num cells in which a gene must appear
   min_genes_per_cell = args[20]  # minimum num genes for a cell to be included
   mito_threshold = args[21]  # what is the threshold for mito cutoff?
   source_files = args[22]
+  print(paste0("Min cells per gene is ", min_cells_per_gene, ".  Min genes per cell is ", min_genes_per_cell, ".  Mito threshold is ", mito_threshold))
 } else {
   # If running this file directly in R, ie not using the bash files, here's the full data
   rawdata <- c('/project2/gilad/reem/singlecellCM/round1/fulldata/CD1/CD1col1/output/dge_data/YG-RE-RE1-hpCD1col1_S1_gene_counts.tsv.gz',
