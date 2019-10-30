@@ -1,0 +1,95 @@
+Note that the current default version of R is 3.6.1.
+Registered S3 method overwritten by 'R.oo':
+  method        from       
+  throw.default R.methodsS3
+Warning message:
+In system2(command = python, args = paste0("\"", config_script,  :
+  running command ''/home/jpopp/.virtualenvs/r-reticulate/bin/python' "/home/jpopp/R/x86_64-pc-linux-gnu-library/3.6/reticulate/config/config.py" 2>/dev/null' had status 1
+Loading required package: Biobase
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: 'BiocGenerics'
+
+The following objects are masked from 'package:parallel':
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from 'package:stats':
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from 'package:base':
+
+    Filter, Find, Map, Position, Reduce, anyDuplicated, append,
+    as.data.frame, basename, cbind, colnames, dirname, do.call,
+    duplicated, eval, evalq, get, grep, grepl, intersect, is.unsorted,
+    lapply, mapply, match, mget, order, paste, pmax, pmax.int, pmin,
+    pmin.int, rank, rbind, rownames, sapply, setdiff, sort, table,
+    tapply, union, unique, unsplit, which, which.max, which.min
+
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: SingleCellExperiment
+Loading required package: SummarizedExperiment
+Loading required package: GenomicRanges
+Loading required package: stats4
+Loading required package: S4Vectors
+
+Attaching package: 'S4Vectors'
+
+The following object is masked from 'package:base':
+
+    expand.grid
+
+Loading required package: IRanges
+Loading required package: GenomeInfoDb
+Loading required package: DelayedArray
+Loading required package: matrixStats
+
+Attaching package: 'matrixStats'
+
+The following objects are masked from 'package:Biobase':
+
+    anyMissing, rowMedians
+
+Loading required package: BiocParallel
+
+Attaching package: 'DelayedArray'
+
+The following objects are masked from 'package:matrixStats':
+
+    colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges
+
+The following objects are masked from 'package:base':
+
+    aperm, apply, rowsum
+
+
+Attaching package: 'SummarizedExperiment'
+
+The following object is masked from 'package:Seurat':
+
+    Assays
+
+
+Attaching package: 'monocle3'
+
+The following objects are masked from 'package:Biobase':
+
+    exprs, fData, fData<-, pData, pData<-
+
+Warning message:
+In log(cell_total) : NaNs produced
+Warning message:
+In log(cell_total) : NaNs produced
+Error in names(x) <- value : 
+  'names' attribute [1] must be the same length as the vector [0]
+Calls: colnames<- -> colnames<-
+Execution halted

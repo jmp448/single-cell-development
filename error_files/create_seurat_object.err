@@ -1,0 +1,7 @@
+Note that the current default version of R is 3.6.1.
+Registered S3 method overwritten by 'R.oo':
+  method        from       
+  throw.default R.methodsS3
+Warning message:
+In system2(command = python, args = paste0("\"", config_script,  :
+  running command ''/home/jpopp/.virtualenvs/r-reticulate/bin/python' "/home/jpopp/R/x86_64-pc-linux-gnu-library/3.6/reticulate/config/config.py" 2>/dev/null' had status 1
