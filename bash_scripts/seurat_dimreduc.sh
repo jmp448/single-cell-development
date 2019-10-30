@@ -7,4 +7,4 @@
 
 module load R
 
-Rscript seurat_dimreduc.R
+Rscript ./R_scripts/seurat_dimreduc.R
