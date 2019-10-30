@@ -9,11 +9,11 @@ cell_metadata <- sc_seurat[[]]
 gene_metadata <- as.data.frame(rownames(expression_matrix))
 rownames(gene_metadata) <- rownames(expression_matrix)
 colnames(gene_metadata) <- "gene_short_name"
+cell_metadata <- cell_metadata[Matrix::colSums(expression_matrix) != 0,]
+expression_matrix <- expression_matrix[,Matrix::colSums(expression_matrix) != 0]
 monocle <- new_cell_data_set(expression_data = expression_matrix,
                              gene_metadata = gene_metadata,
                              cell_metadata = cell_metadata)
-monocle <- monocle[,Matrix::colSums(exprs(monocle)) != 0]
-monocle <- estimate_size_factors(monocle)
 saveRDS(monocle, "./rds_objects/monocle_from_seurat_lowpass_unprocessed.RDS")
 rm(list=ls())
 
@@ -25,10 +25,11 @@ cell_metadata <- sc_seurat[[]]
 gene_metadata <- as.data.frame(rownames(expression_matrix))
 rownames(gene_metadata) <- rownames(expression_matrix)
 colnames(gene_metadata) <- "gene_short_name"
+cell_metadata <- cell_metadata[Matrix::colSums(expression_matrix) != 0,]
+expression_matrix <- expression_matrix[,Matrix::colSums(expression_matrix) != 0]
 monocle <- new_cell_data_set(expression_data = expression_matrix,
                              gene_metadata = gene_metadata,
                              cell_metadata = cell_metadata)
-monocle <- monocle[,Matrix::colSums(exprs(monocle)) != 0]
 saveRDS(monocle, "./rds_objects/monocle_from_seurat_lowpass_basic_norm.RDS")
 rm(list=ls())
 
@@ -40,10 +41,11 @@ cell_metadata <- sc_seurat[[]]
 gene_metadata <- as.data.frame(rownames(expression_matrix))
 rownames(gene_metadata) <- rownames(expression_matrix)
 colnames(gene_metadata) <- "gene_short_name"
+cell_metadata <- cell_metadata[Matrix::colSums(expression_matrix) != 0,]
+expression_matrix <- expression_matrix[,Matrix::colSums(expression_matrix) != 0]
 monocle <- new_cell_data_set(expression_data = expression_matrix,
                              gene_metadata = gene_metadata,
                              cell_metadata = cell_metadata)
-monocle <- monocle[,Matrix::colSums(exprs(monocle)) != 0]
 saveRDS(monocle, "./rds_objects/monocle_from_seurat_lowpass_noscale_norm.RDS")
 rm(list=ls())
 
@@ -55,10 +57,11 @@ cell_metadata <- sc_seurat[[]]
 gene_metadata <- as.data.frame(rownames(expression_matrix))
 rownames(gene_metadata) <- rownames(expression_matrix)
 colnames(gene_metadata) <- "gene_short_name"
+cell_metadata <- cell_metadata[Matrix::colSums(expression_matrix) != 0,]
+expression_matrix <- expression_matrix[,Matrix::colSums(expression_matrix) != 0]
 monocle <- new_cell_data_set(expression_data = expression_matrix,
                              gene_metadata = gene_metadata,
                              cell_metadata = cell_metadata)
-monocle <- monocle[,Matrix::colSums(exprs(monocle)) != 0]
 saveRDS(monocle, "./rds_objects/monocle_from_seurat_lowpass_sctransform.RDS")
 rm(list=ls())
 
@@ -70,14 +73,15 @@ cell_metadata <- sc_seurat[[]]
 gene_metadata <- as.data.frame(rownames(expression_matrix))
 rownames(gene_metadata) <- rownames(expression_matrix)
 colnames(gene_metadata) <- "gene_short_name"
+cell_metadata <- cell_metadata[Matrix::colSums(expression_matrix) != 0,]
+expression_matrix <- expression_matrix[,Matrix::colSums(expression_matrix) != 0]
 monocle <- new_cell_data_set(expression_data = expression_matrix,
                              gene_metadata = gene_metadata,
                              cell_metadata = cell_metadata)
-monocle <- monocle[,Matrix::colSums(exprs(monocle)) != 0]
 saveRDS(monocle, "./rds_objects/monocle_from_seurat_lowpass_sctransform_mitoregress.RDS")
 rm(list=ls())
 
-# Create monocle object from SC transformed seurat object with mito and colday regressed out 
+# Create monocle object from SC transformed seurat object with mito and colday regressed out
 seurat_file <- "./rds_objects/seurat_obj_lowpass_sctransform_mitocoldayregress.RDS"
 sc_seurat <- readRDS(seurat_file)
 expression_matrix <- sc_seurat@assays[["RNA"]]@scale.data
@@ -85,9 +89,10 @@ cell_metadata <- sc_seurat[[]]
 gene_metadata <- as.data.frame(rownames(expression_matrix))
 rownames(gene_metadata) <- rownames(expression_matrix)
 colnames(gene_metadata) <- "gene_short_name"
+cell_metadata <- cell_metadata[Matrix::colSums(expression_matrix) != 0,]
+expression_matrix <- expression_matrix[,Matrix::colSums(expression_matrix) != 0]
 monocle <- new_cell_data_set(expression_data = expression_matrix,
                              gene_metadata = gene_metadata,
                              cell_metadata = cell_metadata)
-monocle <- monocle[,Matrix::colSums(exprs(monocle)) != 0]
 saveRDS(monocle, "./rds_objects/monocle_from_seurat_sctransform_mitocoldayregress.RDS")
 rm(list=ls())
