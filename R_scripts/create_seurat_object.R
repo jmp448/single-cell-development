@@ -9,48 +9,29 @@ library(Seurat)
 ## My goal is to combine all 18 collections into a single Seurat object.  First, I
 ## need to read in the raw data for all collections.
 
-# rawdata_C1c1 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col1/output/dge_data/YG-RE1-Drop-CD1col1_S1_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C1c2 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col2/output/dge_data/YG-RE1-Drop-CD1col2_S2_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C1c3 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col3/output/dge_data/YG-RE1-Drop-CD1col3_S3_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C1c4 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col4/output/dge_data/YG-RE2-Drop-CD1col4_S1_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C1c5 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col5/output/dge_data/YG-RE2-Drop-CD1col5_S2_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C1c6 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col6/output/dge_data/YG-RE2-Drop-CD1col6_S3_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C2c1 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col1/output/dge_data/YG-RE1-Drop-CD2col1_S4_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C2c2 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col2/output/dge_data/YG-RE2-Drop-CD2col2_S4_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C2c3 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col3/output/dge_data/YG-RE2-Drop-CD2col3_S5_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C2c4 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col4/output/dge_data/YG-RE1-Drop-CD2col4_S5_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C2c5 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col5/output/dge_data/YG-RE2-Drop-CD2col5_S6_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C2c6 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col6/output/dge_data/YG-RE1-Drop-CD2col6_S6_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C3c1 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col1/output/dge_data/YG-RE2-Drop-CD3col1_S7_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C3c2 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col2/output/dge_data/YG-RE2-Drop-CD3col2_S8_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C3c3 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col3/output/dge_data/YG-RE1-Drop-CD3col3_S7_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C3c4 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col4/output/dge_data/YG-RE1-Drop-CD3col4_S8_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C3c5 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col5/output/dge_data/YG-RE1-Drop-CD3col5_S9_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1) rawdata_C3c6 <-
-# read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col6/output/dge_data/YG-RE2-Drop-CD3col6_S9_gene_counts.tsv.gz',
-# header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C1c1 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col1/output/dge_data/YG-RE1-Drop-CD1col1_S1_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C1c2 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col2/output/dge_data/YG-RE1-Drop-CD1col2_S2_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C1c3 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col3/output/dge_data/YG-RE1-Drop-CD1col3_S3_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C1c4 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col4/output/dge_data/YG-RE2-Drop-CD1col4_S1_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C1c5 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col5/output/dge_data/YG-RE2-Drop-CD1col5_S2_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C1c6 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col6/output/dge_data/YG-RE2-Drop-CD1col6_S3_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C2c1 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col1/output/dge_data/YG-RE1-Drop-CD2col1_S4_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C2c2 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col2/output/dge_data/YG-RE2-Drop-CD2col2_S4_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C2c3 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col3/output/dge_data/YG-RE2-Drop-CD2col3_S5_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C2c4 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col4/output/dge_data/YG-RE1-Drop-CD2col4_S5_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C2c5 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col5/output/dge_data/YG-RE2-Drop-CD2col5_S6_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C2c6 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col6/output/dge_data/YG-RE1-Drop-CD2col6_S6_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C3c1 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col1/output/dge_data/YG-RE2-Drop-CD3col1_S7_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C3c2 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col2/output/dge_data/YG-RE2-Drop-CD3col2_S8_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C3c3 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col3/output/dge_data/YG-RE1-Drop-CD3col3_S7_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C3c4 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col4/output/dge_data/YG-RE1-Drop-CD3col4_S8_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C3c5 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col5/output/dge_data/YG-RE1-Drop-CD3col5_S9_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
+rawdata_C3c6 <- read.table('/project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col6/output/dge_data/YG-RE2-Drop-CD3col6_S9_gene_counts.tsv.gz', header = T, stringsAsFactors = F, row.names = 1)
 
 # # Save all files save.image('rawdata.RData')
 
 # Load previously saved raw data
-load("./workspaces/rawdata.RData")
+# load("./workspaces/rawdata.RData")
 
 ## Next, I convert Ensembl gene numbers to gene names/symbols to make it more
 ## readable.  To do that, first I need to get the matched Ensembl IDs and gene
