@@ -57,11 +57,7 @@ mito_threshold=30  # what is the percentage threshold cutoff for mito counts?
 if true; then
    rm ./error_files/create_seurat_object.out
    rm ./error_files/create_seurat_object.err
-   sbatch ./bash_scripts/create_seurat_object.sh $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 \
-                                    $cd2col1 $cd2col2 $cd2col3 $cd2col4 $cd2col5 $cd2col6 \
-                                    $cd3col1 $cd3col2 $cd3col3 $cd3col4 $cd3col5 $cd3col6 \
-                                    $min_cells_per_gene $min_genes_per_cell $mito_threshold \
-                                    $source_files
+   sbatch ./bash_scripts/create_seurat_object.sh
 fi
 
 # PART 2: Normalize Seurat data
