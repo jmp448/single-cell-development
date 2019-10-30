@@ -5,6 +5,6 @@
 #SBATCH --error=./error_files/monocle_dimreduc.err
 #SBATCH --job-name=monocle_dimreduc
 
-module load R python/3.5.2
+module load R
 
 Rscript monocle_dimreduc.R
