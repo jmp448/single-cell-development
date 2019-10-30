@@ -3,7 +3,7 @@ library(Seurat)
 plots_loc <- "./seurat_plots/"
 
 ### Basic norm
-sc <- readRDS("./rds_objects/seurat_obj_lowpass_basic_norm.RDS")
+sc <- readRDS("./rds_objects/seurat_obj_lowpass_basic_norm_processed.RDS")
 
 # PCA diffday
 png(paste0(plots_loc, "lowpass_basic_norm_PCA_diffday.png"), width=800, height=600)
@@ -49,7 +49,7 @@ rm(list=ls())
 
 
 ### Noscale norm
-sc <- readRDS("./rds_objects/seurat_obj_lowpass_noscale_norm.RDS")
+sc <- readRDS("./rds_objects/seurat_obj_lowpass_noscale_norm_processed.RDS")
 
 # PCA diffday
 png(paste0(plots_loc, "lowpass_noscale_norm_PCA_diffday.png"), width=800, height=600)
@@ -95,7 +95,7 @@ rm(list=ls())
 
 
 ### SCTransform
-sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform.RDS")
+sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_processed.RDS")
 
 # PCA diffday
 png(paste0(plots_loc, "lowpass_sctransform_PCA_diffday.png"), width=800, height=600)
@@ -141,7 +141,7 @@ rm(list=ls())
 
 
 ### SCTransform Mitoregress
-sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_mitoregress.RDS")
+sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_mitoregress_processed.RDS")
 
 # PCA diffday
 png(paste0(plots_loc, "lowpass_sctransform_PCA_diffday.png"), width=800, height=600)
@@ -187,7 +187,7 @@ rm(list=ls())
 
 
 ### SCTransform Mito Colday Regress
-sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_mitocoldayregress.RDS")
+sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_mitocoldayregress_processed.RDS")
 
 # PCA diffday
 png(paste0(plots_loc, "lowpass_sctransform_PCA_diffday.png"), width=800, height=600)
