@@ -7,4 +7,4 @@
 
 module load R
 
-Rscript monocle_visualizations.R
+Rscript ./R_scripts/monocle_visualizations.R
