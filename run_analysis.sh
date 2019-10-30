@@ -67,15 +67,17 @@ if false; then
 fi
 
 # PART 2: Normalize Seurat data
-if true; then
+if false; then
    rm ./error_files/seurat_normalization.err
    rm ./error_files/seurat_normalization.out
    sbatch ./bash_scripts/seurat_normalization.sh $source_files
 fi
 
-# PART 2: Perform visualizations on the data set
-if false; then
-   sbatch ./bash_scripts/early_analytics.sh
+# PART 3: Prepare monocle objects from seurat objects
+if true; then
+   rm ./error_files/seurat2monocle.err
+   rm ./error_files/seurat2monocle.out
+   sbatch ./bash_scripts/seurat2monocle.sh
 fi
 
 # PART 3: Monocle Analysis

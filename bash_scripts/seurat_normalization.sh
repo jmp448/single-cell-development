@@ -7,6 +7,6 @@
 
 source_files="${1}"
 
-module load R python/3.5.2
+module load R
 
 Rscript ./R_scripts/seurat_normalization.R $source_files
