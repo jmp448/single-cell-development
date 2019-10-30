@@ -314,6 +314,7 @@ all_cols_S$colday <- substr(all_cols_S$orig.ident, 3, 3)
 table(all_cols_S$colday)
 
 # get rid of high mito
+all_cols_S[["percent.mito"]] <- PercentageFeatureSet(all_cols_S, pattern = "^MT-")
 all_cols_S <- subset(all_cols_S, subset = percent.mito < 30)
 
 # (Josh) Save to rds file
