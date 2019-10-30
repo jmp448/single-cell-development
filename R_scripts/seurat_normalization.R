@@ -1,7 +1,4 @@
 library(Seurat)
-# Set reticulate library
-library(reticulate)
-reticulate::use_python("/software/python-3.5.2-el7-x86_64/bin/python", required = TRUE)
 
 args = commandArgs(trailingOnly = TRUE)
 source_files = args[1]

@@ -74,13 +74,22 @@ if false; then
 fi
 
 # PART 3: Prepare monocle objects from seurat objects
-if true; then
+if false; then
    rm ./error_files/seurat2monocle.err
    rm ./error_files/seurat2monocle.out
    sbatch ./bash_scripts/seurat2monocle.sh
 fi
 
-# PART 3: Monocle Analysis
+if true; then
+   # rm ./error_files/monocle_dimreduc.err
+   # rm ./error_files/monocle_dimreduc.out
+   rm ./error_files/seurat_dimreduc.err
+   rm ./error_files/seurat_dimreduc.out
+   # sbatch ./bash_scripts/monocle_dimreduc.sh
+   sbatch ./bash_scripts/seurat_dimreduc.sh
+fi
+
+# Monocle Analysis
 if false; then
    # bash install_monocle.sh
    sbatch ./bash_scripts/create_monocle_object.sh $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 \

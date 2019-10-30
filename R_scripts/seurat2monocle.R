@@ -95,4 +95,3 @@ monocle <- new_cell_data_set(expression_data = expression_matrix,
                              gene_metadata = gene_metadata,
                              cell_metadata = cell_metadata)
 saveRDS(monocle, "./rds_objects/monocle_from_seurat_sctransform_mitocoldayregress.RDS")
-rm(list=ls())
