@@ -7,4 +7,4 @@
 
 module load R
 
-Rscript monocle_dimreduc.R
+Rscript ./R_scripts/monocle_dimreduc.R
