@@ -1,17 +1,36 @@
-Not all barcodes are in demuxlet data. Something is wrong in CD1col1!
-Not all barcodes are in demuxlet data. Something is wrong in CD1col2!
-Not all barcodes are in demuxlet data. Something is wrong in CD1col3!
-Not all barcodes are in demuxlet data. Something is wrong in CD1col4!
-Not all barcodes are in demuxlet data. Something is wrong in CD1col5!
-Not all barcodes are in demuxlet data. Something is wrong in CD1col6!
-Not all barcodes are in demuxlet data. Something is wrong in CD2col1!
-Not all barcodes are in demuxlet data. Something is wrong in CD2col2!
-Not all barcodes are in demuxlet data. Something is wrong in CD2col3!
-Not all barcodes are in demuxlet data. Something is wrong in CD2col4!
-Not all barcodes are in demuxlet data. Something is wrong in CD2col5!
-Not all barcodes are in demuxlet data. Something is wrong in CD3col1!
-Not all barcodes are in demuxlet data. Something is wrong in CD3col2!
-Not all barcodes are in demuxlet data. Something is wrong in CD3col3!
-Not all barcodes are in demuxlet data. Something is wrong in CD3col4!
-Not all barcodes are in demuxlet data. Something is wrong in CD3col5!
-Not all barcodes are in demuxlet data. Something is wrong in CD3col6!
+[1] "raw data file number 1 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col1/output/dge_data/YG-RE1-Drop-CD1col1_S1_gene_counts.tsv.gz"
+[1] "raw data file number 2 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col2/output/dge_data/YG-RE1-Drop-CD1col2_S2_gene_counts.tsv.gz"
+[1] "raw data file number 3 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col3/output/dge_data/YG-RE1-Drop-CD1col3_S3_gene_counts.tsv.gz"
+[1] "raw data file number 4 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col4/output/dge_data/YG-RE2-Drop-CD1col4_S1_gene_counts.tsv.gz"
+[1] "raw data file number 5 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col5/output/dge_data/YG-RE2-Drop-CD1col5_S2_gene_counts.tsv.gz"
+[1] "raw data file number 6 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col6/output/dge_data/YG-RE2-Drop-CD1col6_S3_gene_counts.tsv.gz"
+[1] "raw data file number 7 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col1/output/dge_data/YG-RE1-Drop-CD2col1_S4_gene_counts.tsv.gz"
+[1] "raw data file number 8 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col2/output/dge_data/YG-RE2-Drop-CD2col2_S4_gene_counts.tsv.gz"
+[1] "raw data file number 9 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col3/output/dge_data/YG-RE2-Drop-CD2col3_S5_gene_counts.tsv.gz"
+[1] "raw data file number 10 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col4/output/dge_data/YG-RE1-Drop-CD2col4_S5_gene_counts.tsv.gz"
+[1] "raw data file number 11 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col5/output/dge_data/YG-RE2-Drop-CD2col5_S6_gene_counts.tsv.gz"
+[1] "raw data file number 12 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD2/CD2col6/output/dge_data/YG-RE1-Drop-CD2col6_S6_gene_counts.tsv.gz"
+[1] "raw data file number 13 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col1/output/dge_data/YG-RE2-Drop-CD3col1_S7_gene_counts.tsv.gz"
+[1] "raw data file number 14 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col2/output/dge_data/YG-RE2-Drop-CD3col2_S8_gene_counts.tsv.gz"
+[1] "raw data file number 15 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col3/output/dge_data/YG-RE1-Drop-CD3col3_S7_gene_counts.tsv.gz"
+[1] "raw data file number 16 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col4/output/dge_data/YG-RE1-Drop-CD3col4_S8_gene_counts.tsv.gz"
+[1] "raw data file number 17 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col5/output/dge_data/YG-RE1-Drop-CD3col5_S9_gene_counts.tsv.gz"
+[1] "raw data file number 18 is found at /project2/gilad/reem/singlecellCM/round1/lowpass/CD3/CD3col6/output/dge_data/YG-RE2-Drop-CD3col6_S9_gene_counts.tsv.gz"
+[1] "Min cells per gene is 3.  Min genes per cell is 200.  Mito threshold is 30"
+Not all barcodes are in demuxlet data. Something is wrong in CD1col1!Found 22 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD1col2!Found 24 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD1col3!Found 25 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD1col4!Found 70 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD1col5!Found 99 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD1col6!Found 41 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD2col1!Found 16 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD2col2!Found 12 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD2col3!Found 285 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD2col4!Found 104 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD2col5!Found 232 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD3col1!Found 29 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD3col2!Found 36 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD3col3!Found 17 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD3col4!Found 19 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD3col5!Found 35 unmatched barcodes.
+Not all barcodes are in demuxlet data. Something is wrong in CD3col6!Found 15 unmatched barcodes.

@@ -1,0 +1,114 @@
+Note that the current default version of R is 3.6.1.
+Registered S3 method overwritten by 'R.oo':
+  method        from       
+  throw.default R.methodsS3
+Warning message:
+In system2(command = python, args = paste0("\"", config_script,  :
+  running command ''/home/jpopp/.virtualenvs/r-reticulate/bin/python' "/home/jpopp/R/x86_64-pc-linux-gnu-library/3.6/reticulate/config/config.py" 2>/dev/null' had status 1
+PC_ 1 
+Positive:  MT-RNR2, MALAT1, MYH6, RPS13, RACK1, MYL7, RPS16, TMSB10, RPS11, RPLP2 
+	   RPS27A, HSP90B1, RPL12, RPLP0, HSP90AA1, RPS23, RPS20, RPS5, RPL24, RPL27A 
+	   YWHAE, RPL8, ACTB, NDUFA4, NCL, RPL4, HIST1H4C, PRRC2C, RPL27, RPL13A 
+Negative:  MT-CO2, MT-CO1, RPLP1, MT-ND4, MT-ND5, MT-ND4L, RPS12, RPS8, RPS19, RPL37A 
+	   RPL34, MT-CYB, PTMA, RPL23, HSP90AB1, RPS24, RPS6, MT-ATP6, MT-ND2, PABPC1 
+	   MT-CO3, MT-ND1, RPL13, MT-RNR1, SPP1, SUCO, EPM2AIP1, MIR205HG, OXA1L, SFRP1 
+PC_ 2 
+Positive:  BNIP3, RPS6, SERPINE2, MIXL1, MT-RNR2, NTS, HAS2, ASPM, APLNR, HAPLN1 
+	   LINC01356, GPC3, SLC2A3, MT-TC, ATG12, ID2, DST, SNHG25, .ENSG00000254584, .ENSG00000236673 
+	   FGFR1, CADM1, IFITM1, RBM6, ANKRD26, KRT19, MT-TT, TOP2A, SYNE2, TBL1X 
+Negative:  MALAT1, RPS13, RPS16, RPLP2, RPS11, RPS20, RPL27A, HSP90AA1, RPL31, RPL27 
+	   YWHAE, RPL19, RPS4X, ACTB, RPL13A, HIST1H4C, NCL, RPS17, RPS3, TMSB10 
+	   MYH6, RPL24, TPT1, HSP90B1, RPL32, RPL12, RACK1, RPL38, RPS23, RPS5 
+PC_ 3 
+Positive:  MYH6, TNNT2, EMC10, MYL7, ACTC1, TTN, MYL4, ANKRD1, NEBL, TNNI1 
+	   NEXN, NPPA, SMPX, MYL3, TECRL, NPPB, ACTN2, TNNC1, SORBS2, PLN 
+	   CSRP3, HSPB1, FILIP1, SVIL, TRIM55, PPP1R12B, MYL9, MYBPC3, SLC8A1, SYNPO2L 
+Negative:  L1TD1, MT-ND6, RPL35, NASP, ACTB, RPL10A, RPS18, RPS5, RPL24, RPL15 
+	   TPT1, RPL26, RPL14, RPL8, NPM1, TMSB10, TMSB4X, RPL4, CALM1, YWHAE 
+	   RPS23, HIST1H4C, HNRNPA2B1, RPL18, TPM1, RPS15, RPS25, GSTP1, LDHB, HMGA1 
+PC_ 4 
+Positive:  EMC10, RPL35, L1TD1, RPL10A, MT-ND6, RPL15, TNNT2, NASP, RPL26, RPL24 
+	   RPS15, HSP90B1, RPS18, LDHB, GSTP1, RPS29, ANKRD1, ACTC1, RPL14, CALM1 
+	   H3F3B, TMSB4X, RPL18, COX7C, RPL4, MYH6, RPS5, NPM1, HNRNPU, TPT1 
+Negative:  MALAT1, MT-RNR2, RPS13, RPS16, RPLP2, RPS11, RPL27A, RPL31, RPS20, RPL27 
+	   RPL19, RPS4X, HSP90AA1, RPS17, RPS3, NCL, RPL32, MT-ND3, RPS6, NAP1L1 
+	   BEX3, RPL11, RPL37, RPL5, NUCKS1, VIM, CCDC34, APLNR, RGS5, CCDC141 
+PC_ 5 
+Positive:  MALAT1, BEX3, NAP1L1, NUCKS1, RPL11, RPL37, ANKRD1, RPL5, EMC10, TNNT2 
+	   HIST1H4C, RPL23, FN1, ACTG1, RPS12, NPM1, MYL7, CTSV, KRT8, DLK1 
+	   GSTP1, H2AFZ, C4orf48, SLIRP, KRT19, .ENSG00000278791, LIX1, MT-TS2, MT-TY, RPS2 
+Negative:  RPL31, RPL27, RPL19, RPS4X, RPS17, MT-RNR2, RPS3, RPL32, RPS27A, RPLP0 
+	   MT-ND3, RPS18, MYH6, IGF2, TECRL, NEBL, NEXN, PRRC2C, PTMA, MT-RNR1 
+	   H3F3B, MYL6, FILIP1, RBM25, MYL4, RPL10A, TMSB4X, MT-TF, RPS5, RPLP2 
+Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
+To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
+This message will be shown once per session
+10:21:16 UMAP embedding parameters a = 0.9922 b = 1.112
+10:21:16 Read 25770 rows and found 30 numeric columns
+10:21:16 Using Annoy for neighbor search, n_neighbors = 30
+10:21:16 Building Annoy index with metric = cosine, n_trees = 50
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+10:21:22 Writing NN index file to temp file /tmp/jobs/63465416/RtmpBTJpAo/filea9ee187b3ef7
+10:21:22 Searching Annoy index using 1 thread, search_k = 3000
+10:21:32 Annoy recall = 100%
+10:21:32 Commencing smooth kNN distance calibration using 1 thread
+10:21:33 Initializing from normalized Laplacian + noise
+10:21:35 Commencing optimization for 200 epochs, with 1112438 positive edges
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+10:22:09 Optimization finished
+PC_ 1 
+Positive:  MT-RNR2, TNNT2, HIST1H4C, MT-ATP8, MYH6, ACTC1, RPL12, MYL4, RPL38, RPS21 
+	   MYL7, EMC10, RPS29, MDK, RPL14, RPL13A, TTN, HSP90B1, RPL35, SRP14 
+	   RPS25, NASP, TERF1, HIST1H1D, RPL26, RPL41, DDX17, PNISR, RPL24, H3F3B 
+Negative:  MT-CO2, MT-CO1, RPLP1, MT-ND4, MT-ND5, MT-ND4L, RPS12, RPS8, RPS19, RPL37A 
+	   RPL34, PTMA, MT-CYB, RPL23, HSP90AB1, RPS24, RPS6, MT-ATP6, MT-ND2, MT-CO3 
+	   PABPC1, MT-ND1, RPL13, MT-RNR1, PLEKHH2, EPM2AIP1, PEG10, NRP2, FIGN, C1orf21 
+PC_ 2 
+Positive:  MALAT1, ACTB, YWHAE, RPS13, RPS16, RPLP2, RPL24, TPT1, RPS11, TMSB10 
+	   HIST1H4C, RPL31, RPS5, RPL19, RPS20, RPL27, RPL27A, RPL13A, HSP90B1, RPS4X 
+	   RPS17, RPS3, RPL8, HSP90AA1, RPL4, RPS23, RPL10A, L1TD1, HNRNPA2B1, SRP14 
+Negative:  TNNT2, EMC10, MYL7, ACTC1, MYH6, ANKRD1, TTN, MYL4, SMPX, COL1A1 
+	   NPPA, NEBL, .ENSG00000278791, TNNI1, GPC3, PKP2, HAS2, MYL3, CADM1, COL3A1 
+	   SVIL, MT-RNR2, SORBS2, PLN, MTRNR2L1, TNNC1, TECRL, KRT19, MAGED1, ATP2B1 
+PC_ 3 
+Positive:  MYH6, MYL7, EMC10, TNNT2, ACTC1, MALAT1, TTN, MYL4, ANKRD1, NEBL 
+	   TNNI1, NEXN, NPPA, MYL3, SMPX, TECRL, NPPB, ACTN2, TNNC1, PPP1R12B 
+	   SORBS2, CSRP3, FILIP1, HSPB1, PLN, RPS4X, TRIM55, RPS13, MYBPC3, HSP90AA1 
+Negative:  L1TD1, COL3A1, H2AFZ, HIST1H1D, DCN, TERF1, HMGA1, NASP, CALM1, LUM 
+	   RPS29, RPL35, RAN, RPS15, HMGB2, CENPF, TUBB, TOP2A, RPL26, NOP56 
+	   IGF2, NPM1, S100A10, SPARC, SET, SERBP1, RPS9, ZFAS1, STMN1, ENO1 
+PC_ 4 
+Positive:  EMC10, MT-ND6, RPL10A, L1TD1, RPL35, TNNT2, RPL15, RPS18, ANKRD1, NASP 
+	   RPL24, TMSB4X, HSP90B1, ACTC1, GSTP1, RPL26, RPS15, MYH6, LDHB, RPL18 
+	   CALM1, RPL14, H3F3B, RPS5, RPL4, COX7C, TPT1, RPS29, HNRNPA2B1, MYL7 
+Negative:  MALAT1, MT-RNR2, RPS13, RPS16, RPLP2, RPS11, RPL31, RPL27A, RPS20, RPL27 
+	   RPL19, RPS4X, HSP90AA1, RPS17, RPS3, NCL, RPL32, MT-ND3, NAP1L1, BEX3 
+	   RPL11, RPS6, RPL37, RPL5, VIM, CCDC34, NUCKS1, CCDC141, TTR, RGS5 
+PC_ 5 
+Positive:  MALAT1, BEX3, NAP1L1, RPL11, RPL37, RPL5, EMC10, TNNT2, NUCKS1, ANKRD1 
+	   HIST1H4C, RPL23, RPS6, NPM1, RPS12, H2AFZ, MYL7, SRP14, FN1, SLIRP 
+	   RPL13A, RPS21, RPS29, L1TD1, GSTP1, RPL38, YWHAE, RPS13, ACTG1, CTSV 
+Negative:  MT-RNR2, RPL31, RPL27, RPL19, RPS4X, RPS27A, RPS17, RPS3, RPLP0, RPL32 
+	   IGF2, MT-ND3, COL3A1, RPS18, MYH6, TECRL, NEBL, PRRC2C, IGFBP5, NEXN 
+	   DCN, PTMA, MT-RNR1, MYL6, COL1A2, DSP, GPM6A, MT-TF, TMSB4X, FILIP1 
+10:23:29 UMAP embedding parameters a = 0.9922 b = 1.112
+10:23:29 Read 25770 rows and found 30 numeric columns
+10:23:29 Using Annoy for neighbor search, n_neighbors = 30
+10:23:29 Building Annoy index with metric = cosine, n_trees = 50
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+10:23:35 Writing NN index file to temp file /tmp/jobs/63465416/RtmpBTJpAo/filea9ee2d1bbf99
+10:23:35 Searching Annoy index using 1 thread, search_k = 3000
+10:23:45 Annoy recall = 100%
+10:23:45 Commencing smooth kNN distance calibration using 1 thread
+10:23:47 Initializing from normalized Laplacian + noise
+10:23:48 Commencing optimization for 200 epochs, with 1091308 positive edges
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+10:24:22 Optimization finished
