@@ -80,7 +80,7 @@ if false; then
    sbatch ./bash_scripts/seurat2monocle.sh
 fi
 
-if true; then
+if false; then
    rm ./error_files/monocle_dimreduc.err
    rm ./error_files/monocle_dimreduc.out
    # rm ./error_files/seurat_dimreduc.err
@@ -93,6 +93,12 @@ if false; then
    rm ./error_files/seurat_visualizations.err
    rm ./error_files/seurat_visualizations.out
    sbatch ./bash_scripts/seurat_visualizations.sh
+fi
+
+if true; then
+   rm ./error_files/monocle_visualizations.err
+   rm ./error_files/monocle_visualizations.out
+   sbatch ./bash_scripts/monocle_visualizations.sh
 fi
 
 # Monocle Analysis
