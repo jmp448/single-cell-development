@@ -51,7 +51,6 @@ fi
 
 # PART 1: Create Seurat Object from raw data files
 # Takes around an hour and a half to run on full data
-
 min_cells_per_gene=3  # minimum num cells in which a gene must appear
 min_genes_per_cell=200  # minimum num genes for a cell to be included
 #TODO incorporate mito threshold boolean into pipeline
@@ -65,6 +64,13 @@ if true; then
                                     $cd3col1 $cd3col2 $cd3col3 $cd3col4 $cd3col5 $cd3col6 \
                                     $min_cells_per_gene $min_genes_per_cell $mito_threshold \
                                     $source_files
+fi
+
+# PART 2: Normalize Seurat data
+if false; then
+   rm ./error_files/seurat_normalization.err
+   rm ./error_files/seurat_normalization.out
+   sbatch ./bash_scripts/seurat_normalization.sh $source_files
 fi
 
 # PART 2: Perform visualizations on the data set
