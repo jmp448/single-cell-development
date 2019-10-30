@@ -89,13 +89,13 @@ if false; then
    # sbatch ./bash_scripts/seurat_dimreduc.sh
 fi
 
-if false; then
+if true; then
    rm ./error_files/seurat_visualizations.err
    rm ./error_files/seurat_visualizations.out
    sbatch ./bash_scripts/seurat_visualizations.sh
 fi
 
-if true; then
+if false; then
    rm ./error_files/monocle_visualizations.err
    rm ./error_files/monocle_visualizations.out
    sbatch ./bash_scripts/monocle_visualizations.sh
