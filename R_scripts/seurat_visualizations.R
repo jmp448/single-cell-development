@@ -47,7 +47,7 @@ dev.off()
 
 rm(list=ls())
 
-
+plots_loc <- "./seurat_plots/"
 ### Noscale norm
 sc <- readRDS("./rds_objects/seurat_obj_lowpass_noscale_norm_processed.RDS")
 
@@ -93,7 +93,7 @@ dev.off()
 
 rm(list=ls())
 
-
+plots_loc <- "./seurat_plots/"
 ### SCTransform
 sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_processed.RDS")
 
@@ -139,7 +139,7 @@ dev.off()
 
 rm(list=ls())
 
-
+plots_loc <- "./seurat_plots/"
 ### SCTransform Mitoregress
 sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_mitoregress_processed.RDS")
 
@@ -185,7 +185,7 @@ dev.off()
 
 rm(list=ls())
 
-
+plots_loc <- "./seurat_plots/"
 ### SCTransform Mito Colday Regress
 sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_mitocoldayregress_processed.RDS")
 
