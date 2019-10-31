@@ -108,8 +108,8 @@ rm(i, j, k, m, rows_temp, mygeneinfo_gsym_temp, mygeneinfo_idsort_temp, mygenein
 ## first so I can assign individual and diffday labels more easily, before merging
 ## and subsetting the object.
 
-for (i in 1:3) {
-  for (j in 1:6) {
+for (i in 1:1) {
+  for (j in 1:1) {
 
     bmrawdat_temp <- eval(as.name(paste0("bm_rawdat_C", i, "c", j)))
 
