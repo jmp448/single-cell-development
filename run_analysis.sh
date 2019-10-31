@@ -65,7 +65,7 @@ if false; then
 fi
 
 # PART 2: Normalize Seurat data
-if true; then
+if false; then
    rm ./error_files/seurat_normalization.err
    rm ./error_files/seurat_normalization.out
    sbatch ./bash_scripts/seurat_normalization.sh $source_files
@@ -78,13 +78,16 @@ if false; then
    sbatch ./bash_scripts/seurat2monocle.sh
 fi
 
-if false; then
+if true; then
    rm ./error_files/monocle_dimreduc.err
    rm ./error_files/monocle_dimreduc.out
-   # rm ./error_files/seurat_dimreduc.err
-   # rm ./error_files/seurat_dimreduc.out
    sbatch ./bash_scripts/monocle_dimreduc.sh
-   # sbatch ./bash_scripts/seurat_dimreduc.sh
+fi
+
+if true; then
+   rm ./error_files/seurat_dimreduc.err
+   rm ./error_files/seurat_dimreduc.out
+   sbatch ./bash_scripts/seurat_dimreduc.sh
 fi
 
 if false; then
