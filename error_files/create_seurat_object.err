@@ -5,3 +5,7 @@ Registered S3 method overwritten by 'R.oo':
 Warning message:
 In system2(command = python, args = paste0("\"", config_script,  :
   running command ''/home/jpopp/.virtualenvs/r-reticulate/bin/python' "/home/jpopp/R/x86_64-pc-linux-gnu-library/3.6/reticulate/config/config.py" 2>/dev/null' had status 1
+Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  : 
+  line 1 did not have 3 elements
+Calls: read.table -> scan
+Execution halted
