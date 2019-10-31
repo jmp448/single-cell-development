@@ -1,6 +1,6 @@
 library(Seurat)
 
-sc <- readRDS("./rds_objects/old_seurat_obj_lowpass.rds")
+sc <- readRDS("./rds_objects/old_seurat_obj_lowpass_processed.rds")
 sc <- RunPCA(sc)
 sc <- RunUMAP(sc, dims=1:30)
 saveRDS(sc, "./rds_objects/old_seurat_obj_lowpass_processed.rds")
