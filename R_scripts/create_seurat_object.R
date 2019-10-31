@@ -57,12 +57,11 @@ geneinfo <- readRDS("./rds_objects/geneinfo.rds")
 for (i in 1:3) {
   for (j in 1:6) {
     # read in every raw data matrix
-    raw_dat_temp <- read.table(rawdata[6 * (i - 1) + j], header = T, stringsAsFactors = F,
-      row.names = 1)
+    print(rawdata[6*(i-1)+j])
+    raw_dat_temp <- read.table(rawdata[6 * (i - 1) + j], header = T, stringsAsFactors = F, row.names = 1)
 
     # remove the version numbers from those gene IDs
-    gene_id_temp <- str_replace(rownames(raw_dat_temp), pattern = ".[0-9]+$",
-      replacement = "")
+    gene_id_temp <- str_replace(rownames(raw_dat_temp), pattern = ".[0-9]+$", replacement = "")
     # and subset to only those genes from the full list of genes
     mygeneinfo_temp <- geneinfo[geneinfo$ensembl_gene_id %in% gene_id_temp, ]
 
