@@ -65,14 +65,14 @@ if false; then
 fi
 
 # PART 2: Normalize Seurat data
-if false; then
+if true; then
    rm ./error_files/seurat_normalization.err
    rm ./error_files/seurat_normalization.out
    sbatch ./bash_scripts/seurat_normalization.sh $source_files
 fi
 
 # PART 3: Prepare monocle objects from seurat objects
-if true; then
+if false; then
    rm ./error_files/seurat2monocle.err
    rm ./error_files/seurat2monocle.out
    sbatch ./bash_scripts/seurat2monocle.sh
