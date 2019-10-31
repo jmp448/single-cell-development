@@ -131,8 +131,8 @@ rm(bmrawdat_temp, SObject_temp, i, j)
 ## barcode.  I do this using the results from demuxlet, which was run previously
 ## on the data from each collection.
 
-for (i in 1:3) {
-  for (j in 1:6) {
+for (i in 1:1) {
+  for (j in 1:1) {
 
     SObject <- eval(as.name(paste0("CD", i, "col", j, "SObj")))
 
