@@ -8,7 +8,7 @@ library(Seurat)
 
 ## My goal is to combine all 18 collections into a single Seurat object.  First, I
 ## need to read in the raw data for all collections.
-load_from_bash <- F
+load_from_bash <- T
 if (load_from_bash) {
   args = commandArgs(trailingOnly = TRUE)
   rawdata <- c()
