@@ -5,7 +5,7 @@
 #SBATCH --error=./error_files/create_seurat_object.err
 #SBATCH --job-name=create_seurat_object
 
-cd1col1="$1"
+cd1col1="$0"
 cd1col2="$2"
 cd1col3="$3"
 cd1col4="$4"
