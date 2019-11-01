@@ -65,7 +65,7 @@ if true; then
 fi
 
 
-if true; then
+if false; then
    rm ./error_files/create_seurat_object.out
    rm ./error_files/create_seurat_object.err
    sbatch ./bash_scripts/create_seurat_object.sh $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 \

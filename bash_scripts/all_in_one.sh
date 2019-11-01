@@ -4,7 +4,6 @@
 #SBATCH --output=./error_files/all_in_one.out
 #SBATCH --error=./error_files/all_in_one.err
 #SBATCH --job-name=create_seurat_object
-#SBATCH --n-tasks=2
 
 cd1col1="$1"
 cd1col2="$2"
