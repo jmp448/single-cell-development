@@ -126,7 +126,7 @@ library(Seurat)
 #
 # rm(list=ls())
 #
-# plots_loc <- "./seurat_plots/"
+plots_loc <- "./seurat_plots/"
 
 
 ### SCTransform Mitoregress
