@@ -310,6 +310,20 @@ all_cols_S[["percent.mito"]] <- PercentageFeatureSet(all_cols_S, pattern = "^MT-
 all_cols_S <- subset(all_cols_S, subset = percent.mito < 30)
 
 # Make sure that all metadata are in factor form
+# Create factors
+colday_levels <- c("1", "2", "3")
+all_cols_S$colday <- factor(x=all_cols_S$colday, levels=colday_levels, ordered=T)
+diffday_levels <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
+all_cols_S <- subset(all_cols_S, subset=diffday %in% diffday_levels)
+all_cols_S$diffday <- factor(x=all_cols_S$diffday, levels=diffday_levels, ordered=T)
+individual_levels <- c("NA19093", "NA18912", "NA18858", "NA18520", "NA18511", "NA18508")
+all_cols_S <- subset(all_cols_S, subset=individual %in% individual_levels)
+all_cols_S$individual <- factor(x=all_cols_S$individual, levels=individual_levels, ordered=T)
+collection_levels <- c("CD1col1", "CD1col2", "CD1col3", "CD1col4", "CD1col5", "CD1col6",
+                      "CD2col1", "CD2col2", "CD2col3", "CD2col4", "CD2col5", "CD2col6",
+                      "CD3col1", "CD3col2", "CD3col3", "CD3col4", "CD3col5", "CD3col6")
+all_cols_S$orig.ident <- factor(x=all_cols_S$orig.ident, levels=collection_levels, ordered=T)
+
 
 # (Josh) Save to rds file
 saveRDS(all_cols_S, file = "./rds_objects/old_seurat_obj_lowpass.rds")

@@ -1,8 +1,5 @@
 library(Seurat)
 
-args = commandArgs(trailingOnly = TRUE)
-source_files = args[1]
-
 sc <- readRDS("./rds_objects/old_seurat_obj_lowpass.rds")
 sc <- SCTransform(sc, vars.to.regress=c("percent.mito"))
 saveRDS(sc, "./rds_objects/old_seurat_obj_lowpass_processed.rds")
