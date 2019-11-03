@@ -326,4 +326,4 @@ all_cols_S$orig.ident <- factor(x=all_cols_S$orig.ident, levels=collection_level
 
 
 # (Josh) Save to rds file
-saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_lowpass.rds")
+saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_lowpass.RDS")
