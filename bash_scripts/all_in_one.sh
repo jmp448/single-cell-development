@@ -3,7 +3,7 @@
 #SBATCH --mem=40G
 #SBATCH --output=./error_files/all_in_one.out
 #SBATCH --error=./error_files/all_in_one.err
-#SBATCH --job-name=create_seurat_object
+#SBATCH --job-name=sc_pipeline
 
 cd1col1="$1"
 cd1col2="$2"
