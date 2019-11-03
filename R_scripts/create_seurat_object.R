@@ -114,7 +114,7 @@ for (i in 1:3) {
 
     bmrawdat_temp <- eval(as.name(paste0("bm_rawdat_C", i, "c", j)))
 
-    SObject_temp <- CreateSeuratObject(bmrawdat_temp, min.cells = min_cells_per_gene, min.features = min_genes_per_cell,
+    SObject_temp <- CreateSeuratObject(bmrawdat_temp, min.cells = 3, min.features = 200,
       project = paste0("CD", i, "col", j))
 
     assign(paste0("CD", i, "col", j, "SObj"), SObject_temp)
@@ -307,14 +307,17 @@ table(all_cols_S$colday)
 
 # get rid of high mito
 all_cols_S[["percent.mito"]] <- PercentageFeatureSet(all_cols_S, pattern = "^MT-")
-all_cols_S <- subset(all_cols_S, subset = percent.mito < mito_threshold)
+all_cols_S <- subset(all_cols_S, subset = percent.mito < 30)
 
+# Make sure that all metadata are in factor form
 # Create factors
 colday_levels <- c("1", "2", "3")
 all_cols_S$colday <- factor(x=all_cols_S$colday, levels=colday_levels, ordered=T)
 diffday_levels <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
+all_cols_S <- subset(all_cols_S, subset=diffday %in% diffday_levels)
 all_cols_S$diffday <- factor(x=all_cols_S$diffday, levels=diffday_levels, ordered=T)
 individual_levels <- c("NA19093", "NA18912", "NA18858", "NA18520", "NA18511", "NA18508")
+all_cols_S <- subset(all_cols_S, subset=individual %in% individual_levels)
 all_cols_S$individual <- factor(x=all_cols_S$individual, levels=individual_levels, ordered=T)
 collection_levels <- c("CD1col1", "CD1col2", "CD1col3", "CD1col4", "CD1col5", "CD1col6",
                       "CD2col1", "CD2col2", "CD2col3", "CD2col4", "CD2col5", "CD2col6",
@@ -323,4 +326,4 @@ all_cols_S$orig.ident <- factor(x=all_cols_S$orig.ident, levels=collection_level
 
 
 # (Josh) Save to rds file
-saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_lowpass.RDS")
+saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_lowpass.rds")
