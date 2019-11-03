@@ -39,11 +39,14 @@ srun Rscript ./R_scripts/create_seurat_object.R $cd1col1 $cd1col2 $cd1col3 $cd1c
 wait
 srun Rscript ./R_scripts/seurat_normalization.R $source_files 1
 wait
-srun Rscript ./R_scripts/seurat2monocle.R 2
+# srun Rscript ./R_scripts/seurat2monocle.R 2
+# wait
+# srun Rscript ./R_scripts/seurat_dimreduc.R  3 &
+# srun Rscript ./R_scripts/monocle_dimreduc.R 4
+# wait
+# srun Rscript ./R_scripts/seurat_visualizations.R 5 &
+# srun Rscript ./R_scripts/monocle_visualizations.R 6
+# wait
+Rscript ./R_scripts/seurat_dimreduc.R 2
 wait
-srun Rscript ./R_scripts/seurat_dimreduc.R  3 &
-srun Rscript ./R_scripts/monocle_dimreduc.R 4
-wait
-srun Rscript ./R_scripts/seurat_visualizations.R 5 &
-srun Rscript ./R_scripts/monocle_visualizations.R 6
-wait
+Rscript ./R_scripts/seurat_visualizations.R 3
