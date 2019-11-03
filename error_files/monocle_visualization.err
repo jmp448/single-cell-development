@@ -73,7 +73,6 @@ The following objects are masked from 'package:Biobase':
     exprs, fData, fData<-, pData, pData<-
 
 No trajectory to plot. Has learn_graph() been called yet?
-Error in dev.copy(plt, paste0(plots_loc, filename, ".png"), width = w,  : 
-  'device' should be a function
-Calls: create_plot_png -> dev.copy
+No trajectory to plot. Has learn_graph() been called yet?
+Error: color_cells_by must one of 'cluster', 'partition', 'pseudotime, or a column in the colData table.
 Execution halted

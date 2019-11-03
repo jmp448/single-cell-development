@@ -27,7 +27,7 @@ Found 14 outliers - those will be ignored in fitting/regularization step
 Second step: Get residuals using fitted parameters for 18119 genes
 Computing corrected count matrix for 18119 genes
 Calculating gene attributes
-Wall clock passed: Time difference of 11.21896 mins
+Wall clock passed: Time difference of 11.63463 mins
 Determine variable features
 Set 3000 variable features
 Place corrected count matrix in counts slot
@@ -45,7 +45,7 @@ Found 14 outliers - those will be ignored in fitting/regularization step
 Second step: Get residuals using fitted parameters for 18119 genes
 Computing corrected count matrix for 18119 genes
 Calculating gene attributes
-Wall clock passed: Time difference of 11.47262 mins
+Wall clock passed: Time difference of 11.72481 mins
 Determine variable features
 Set 3000 variable features
 Place corrected count matrix in counts slot
@@ -65,7 +65,7 @@ Found 14 outliers - those will be ignored in fitting/regularization step
 Second step: Get residuals using fitted parameters for 18119 genes
 Computing corrected count matrix for 18119 genes
 Calculating gene attributes
-Wall clock passed: Time difference of 11.39168 mins
+Wall clock passed: Time difference of 11.65575 mins
 Determine variable features
 Set 3000 variable features
 Place corrected count matrix in counts slot
