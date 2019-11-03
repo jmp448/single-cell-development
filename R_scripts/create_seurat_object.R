@@ -309,5 +309,7 @@ table(all_cols_S$colday)
 all_cols_S[["percent.mito"]] <- PercentageFeatureSet(all_cols_S, pattern = "^MT-")
 all_cols_S <- subset(all_cols_S, subset = percent.mito < 30)
 
+# Make sure that all metadata are in factor form
+
 # (Josh) Save to rds file
 saveRDS(all_cols_S, file = "./rds_objects/old_seurat_obj_lowpass.rds")

@@ -87,7 +87,7 @@ if false; then
    sbatch ./bash_scripts/seurat_dimreduc.sh
 fi
 
-if true; then
+if false; then
    rm ./error_files/seurat_visualizations.err
    rm ./error_files/seurat_visualizations.out
    sbatch ./bash_scripts/seurat_visualizations.sh
@@ -103,6 +103,14 @@ fi
 if false; then
    # bash install_monocle.sh
    sbatch ./bash_scripts/create_monocle_object.sh $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 \
+                                    $cd2col1 $cd2col2 $cd2col3 $cd2col4 $cd2col5 $cd2col6 \
+                                    $cd3col1 $cd3col2 $cd3col3 $cd3col4 $cd3col5 $cd3col6 \
+                                    $min_cells_per_gene $min_genes_per_cell $mito_threshold \
+                                    $source_files
+fi
+
+if true; then
+   sbatch /.bash_scripts/pipeline.sh $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 \
                                     $cd2col1 $cd2col2 $cd2col3 $cd2col4 $cd2col5 $cd2col6 \
                                     $cd3col1 $cd3col2 $cd3col3 $cd3col4 $cd3col5 $cd3col6 \
                                     $min_cells_per_gene $min_genes_per_cell $mito_threshold \
