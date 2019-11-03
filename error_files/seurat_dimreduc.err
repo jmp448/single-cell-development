@@ -5,6 +5,185 @@ Registered S3 method overwritten by 'R.oo':
 Warning message:
 In system2(command = python, args = paste0("\"", config_script,  :
   running command ''/home/jpopp/.virtualenvs/r-reticulate/bin/python' "/home/jpopp/R/x86_64-pc-linux-gnu-library/3.6/reticulate/config/config.py" 2>/dev/null' had status 1
+Calculating gene variances
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+Calculating feature variances of standardized and clipped values
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+PC_ 1 
+Positive:  MT-CO2, MT-ND4, HSP90AB1, MT-ND4L, MT-ATP6, MT-ND5, MT-ND1, MT-ND2, PABPC1, MT-CYB 
+	   RPLP1, MT-CO1, RPS19, RPL37A, RPS8, RPS24, RPL34, PTMA, MT-CO3, MT-RNR1 
+	   RPL13, RPS12, RPL23, TCF7L1, RPS6, MRPS14, VSNL1, SS18L2, AK4, NAXE 
+Negative:  H2AFZ, ATP5MC3, TNNT2, HSPE1, HNRNPM, RAN, HSPA8, CCT6A, HMGA1, HIST1H1D 
+	   EMC10, RPS15, XRCC5, HNRNPDL, MYL7, SLIRP, L1TD1, SLC25A5, NOP56, .ENSG00000089009 
+	   RPS29, STMN1, PDIA3, SET, TPM3, YWHAB, CENPF, ENO1, CALM1, PSMA7 
+PC_ 2 
+Positive:  RPS6, CKB, .ENSG00000254277, BNIP3, SCD, PSAT1, CBR1, ASPM, ACSL4, PCLAF 
+	   PTPRZ1, .ENSG00000280707, AURKA, SNHG14, SGO2, ATG12, RBP1, UBE2C, .ENSG00000232445, CCNB1 
+	   ZC3HAV1, SLC2A3, MIXL1, ALDH3A2, RBM6, CENPE, MFGE8, POU5F1, DIAPH2, SCG3 
+Negative:  RPL24, RPL4, RPL10A, HSP90B1, YWHAE, RPL14, RPL15, RPS5, LDHB, RPS23 
+	   TMSB10, RPL35, SRP14, NACA, RPL8, RPS25, HNRNPU, TPT1, PNN, PRRC2C 
+	   H3F3B, RPL26, LUC7L3, COX7C, RPL12, RPS18, PSMA7, EIF3A, ACTB, NASP 
+PC_ 3 
+Positive:  RPS8, RPL34, RPL37A, MT-CO2, RPLP1, MT-CO1, RPS24, RPS19, MT-ND5, MT-ND4 
+	   MT-CYB, MT-ND4L, PABPC1, HSP90AB1, MT-ND2, MT-ND1, MT-ATP6, RPL13, RPS12, RPL23 
+	   MT-CO3, PTMA, MT-RNR1, RPS6, MALAT1, MYH6, TNNI1, TTN, MYL4, ACTC1 
+Negative:  NODAL, DDX21, DPPA4, .ENSG00000280707, MIXL1, TBXT, TUBB2A, VAMP8, UCHL1, RBP1 
+	   ALDH3A2, NEFL, RPL22L1, BNIP3, CCND1, HIGD1A, EPCAM, CKB, EOMES, PSAT1 
+	   SHMT2, LINC01356, UBE2C, PMAIP1, CKS2, .ENSG00000253507, .ENSG00000137807, TPX2, ACSL4, CCNB2 
+PC_ 4 
+Positive:  ESRG, TERF1, TUBB2B, CD24, NOP56, DPPA4, H2AFZ, L1TD1, HSPA8, HMGA1 
+	   HSPE1, UCHL1, TDGF1, EPCAM, RAN, DDX21, DNMT3B, SLIRP, RPL22L1, SLC25A5 
+	   HIST1H1D, POLR3G, RPL41, XRCC5, USP44, CKS2, HNRNPM, FOXD3-AS1, SNHG14, CCT6A 
+Negative:  RPS16, RPS13, RPLP2, RPS20, RPS11, RPL27A, HSP90AA1, RPS4X, RPL27, RPL31 
+	   RPL19, MALAT1, RPS17, RPS3, RPL32, MT-ND3, NCL, RACK1, RPS27A, HSPD1 
+	   RPLP0, BEX3, RPL11, NAP1L1, MYH6, MYL7, RPL37, RPL5, RPL13A, HIGD1A 
+PC_ 5 
+Positive:  MALAT1, RPL31, RPL27, RPL19, RPS3, RPS17, RPS4X, RPL32, RPS16, RPLP2 
+	   RPL27A, RPS13, RPS20, MT-ND3, RPS11, ACTB, ESRG, HSP90AA1, RPS6, CNTNAP2 
+	   LINC01356, TDGF1, TMSB10, RPS23, RPS5, MIXL1, EPCAM, RPL8, RPL13, PTMA 
+Negative:  TNNI1, TTN, ACTC1, MYH6, NEBL, MYL4, NEXN, PKP2, SMPX, NPPA 
+	   PLN, KIFAP3, TECRL, MYL3, ACTN2, ANKRD1, SLC8A1, TRIM55, TNNC1, MYL9 
+	   EMC10, SSB, PDLIM5, HNRNPDL, SORBS2, MYL7, MEIS2, SOX11, TNNT2, PDIA3 
+Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
+To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
+This message will be shown once per session
+18:52:09 UMAP embedding parameters a = 0.9922 b = 1.112
+18:52:09 Read 25770 rows and found 30 numeric columns
+18:52:09 Using Annoy for neighbor search, n_neighbors = 30
+18:52:09 Building Annoy index with metric = cosine, n_trees = 50
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+18:52:14 Writing NN index file to temp file /tmp/jobs/63491926/Rtmp68WiMd/file29302dc0e701
+18:52:15 Searching Annoy index using 1 thread, search_k = 3000
+18:52:24 Annoy recall = 100%
+18:52:25 Commencing smooth kNN distance calibration using 1 thread
+18:52:25 22 smooth knn distance failures
+18:52:26 Found 2 connected components, falling back to 'spca' initialization with init_sdev = 1
+18:52:26 Initializing from PCA
+18:52:26 PCA: 2 components explained 35.83% variance
+18:52:26 Commencing optimization for 200 epochs, with 1142626 positive edges
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+18:53:01 Optimization finished
+Calculating gene variances
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+Calculating feature variances of standardized and clipped values
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+PC_ 1 
+Positive:  MT-CO2, MT-CO1, MT-ND5, RPLP1, MT-ND4, MT-ND4L, MT-CYB, RPL37A, RPS19, HSP90AB1 
+	   MT-ND2, MT-ND1, PABPC1, MT-ATP6, RPS24, RPS8, RPL34, MT-CO3, PTMA, RPL13 
+	   RPS12, MT-RNR1, RPL23, RPS6, TCF7L1, AASDHPPT, HNRNPL, KATNBL1, VSNL1, MRPS14 
+Negative:  H2AFZ, RAN, HMGA1, ATP5MC3, RPS15, PDIA3, ENO1, TPM3, PSMA7, CALM1 
+	   LDHB, L1TD1, KRT18, HNRNPDL, CCT6A, RPL35, HSPE1, COX7C, HNRNPM, UBA52 
+	   SET, HNRNPC, STMN1, RPL26, XRCC5, RPL3, NASP, SSB, FAU, YWHAB 
+PC_ 2 
+Positive:  BNIP3, CKB, PSAT1, .ENSG00000254277, RBP1, RPS6, UBE2C, CENPE, ASPM, SCD 
+	   ACSL4, SGO2, PTPRZ1, MIXL1, SNHG14, CCNB1, CBR1, DIAPH2, PCLAF, SLC2A3 
+	   CKS2, ALDH3A2, TDGF1, POLR3G, MKI67, ATG12, .ENSG00000280707, RBM6, APLNR, AURKA 
+Negative:  RPL10A, RPL24, HSP90B1, RPS5, RPL15, RPL35, RPL14, RPL4, RPS23, TPT1 
+	   LDHB, SRP14, H3F3B, HNRNPA2B1, YWHAE, RPS25, RPL26, NACA, HNRNPU, RPS15 
+	   RPL18, PSMA7, NASP, PNN, RPL12, CALM1, GSTP1, COX7C, GAS5, RPL38 
+PC_ 3 
+Positive:  MYH6, ACTC1, MYL7, MYL4, TTN, NEBL, TNNT2, TNNI1, NEXN, SMPX 
+	   TECRL, FILIP1, ANKRD1, SORBS2, EMC10, ACTN2, MYL3, MALAT1, NPPA, PLN 
+	   PPP1R12B, TRIM55, TNNC1, MYL9, CSRP3, RHOBTB3, SLC8A1, NPPB, PALLD, PDLIM5 
+Negative:  L1TD1, ESRG, DPPA4, TDGF1, EPCAM, UCHL1, TERF1, RPL35, RPL22L1, TUBB2B 
+	   LINC01356, GAL, HMGA1, H2AFZ, DDX21, SERPINE2, RPL26, CNTNAP2, CKS2, CD24 
+	   TUBB2A, NASP, PMAIP1, NOP56, RPL15, MT-ND6, RPL10A, POLR3G, HIST1H1D, RPS15 
+PC_ 4 
+Positive:  ACTC1, TNNT2, RPS29, MYL4, L1TD1, TERF1, SMPX, HIST1H1D, ATP5MC3, RPL35 
+	   RPL26, RPS15, TNNI1, ENO1, H2AFZ, RAN, RPL41, NOP56, HSPE1, HNRNPM 
+	   TTN, EMC10, HMGA1, TPM3, CCT6A, XRCC5, CD24, HNRNPC, SLC25A5, TNNC1 
+Negative:  MALAT1, RPS20, RPS4X, RPLP2, RPL19, RPS13, RPL27A, NCL, HSP90AA1, RPS16 
+	   RPS27A, RPS11, RPL27, RPL31, RPS17, RPS3, MT-ND3, RPS23, RACK1, TMSB10 
+	   RPL32, RPLP0, RBP1, RPL11, RPS5, BNIP3, NDUFA4, SERPINE2, MIXL1, APLNR 
+PC_ 5 
+Positive:  COL3A1, COL1A2, KRT19, LUM, GPC3, DCN, ACTG1, STMN1, FN1, DLK1 
+	   SERBP1, PSMA7, SNRPD2, PEG10, RUNX1T1, FAU, LIX1, PDIA3, HNRNPDL, KCNQ1OT1 
+	   CALM1, SSB, PDGFRA, IGFBP5, PBX3, EPM2AIP1, GSTP1, RPL18, RGS5, PCDH7 
+Negative:  ESRG, MYL4, TDGF1, ACTC1, UCHL1, DPPA4, TERF1, RPS4X, POLR3G, RPL22L1 
+	   SMPX, RPL41, EPCAM, GAL, FILIP1, DDX21, RPL19, MYH6, LINC01356, PMAIP1 
+	   USP44, .ENSG00000254277, RPS5, ACTB, SORBS2, TUBB2B, CKS2, PTPRZ1, RPL27, MALAT1 
+18:57:31 UMAP embedding parameters a = 0.9922 b = 1.112
+18:57:31 Read 25770 rows and found 30 numeric columns
+18:57:31 Using Annoy for neighbor search, n_neighbors = 30
+18:57:31 Building Annoy index with metric = cosine, n_trees = 50
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+18:57:36 Writing NN index file to temp file /tmp/jobs/63491926/Rtmp68WiMd/file2930618e5e98
+18:57:36 Searching Annoy index using 1 thread, search_k = 3000
+18:57:47 Annoy recall = 100%
+18:57:47 Commencing smooth kNN distance calibration using 1 thread
+18:57:47 28 smooth knn distance failures
+18:57:48 Initializing from normalized Laplacian + noise
+18:57:50 Commencing optimization for 200 epochs, with 1204536 positive edges
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+18:58:26 Optimization finished
+PC_ 1 
+Positive:  TNNT2, EMC10, MYL7, L1TD1, ANKRD1, TTN, MYH6, S100A10, GSTP1, CALM1 
+	   HMGA1, TUBB, LDHB, RPL35, NASP, RAN, RPS15, H2AFZ, RPL18, ACTC1 
+	   COX7C, BTF3, CENPF, PSMA7, NPM1, STMN1, TPT1, RPL7A, UBA52, SET 
+Negative:  MT-CO2, MT-CO1, RPLP1, MT-ND4, MT-ND5, MT-ND4L, RPS12, RPS8, RPS6, RPS19 
+	   RPL37A, RPL34, RPL23, PTMA, MT-CYB, HSP90AB1, RPS24, MT-ATP6, RPL13, MT-CO3 
+	   MT-ND2, PABPC1, MT-ND1, MT-RNR2, MT-RNR1, MALAT1, OXA1L, MIR205HG, SPP1, SNX27 
+PC_ 2 
+Positive:  MT-RNR2, MALAT1, RPS13, RPS16, RPLP2, RPS11, RPS20, HSP90AA1, RPL27A, RPL31 
+	   RPL27, RPL19, RPS4X, RPS17, RPS3, NCL, RACK1, RPL32, MT-ND3, RPS27A 
+	   TMSB10, RPL13A, RPLP0, ACTB, BEX3, RPL12, RPS23, NAP1L1, HIST1H4C, YWHAE 
+Negative:  MT-CO2, RPLP1, MT-ND4, TNNT2, HIST1H1D, MT-CO1, MT-ND5, MT-ND4L, TERF1, HSP90AB1 
+	   RPS19, RPS8, RPL37A, MT-CYB, EMC10, MT-ATP6, RPL34, PABPC1, RPS24, H2AFZ 
+	   TOP2A, MT-ND2, MT-ND1, MTRNR2L1, SFRP1, GPC3, SMPX, SLIRP, NOP56, ASPM 
+PC_ 3 
+Positive:  EMC10, MYH6, MYL7, TNNT2, ACTC1, L1TD1, YWHAE, TPT1, ANKRD1, RPL24 
+	   HSP90B1, HNRNPA2B1, MALAT1, RPL35, GSTP1, HIST1H4C, SRP14, ACTB, LDHB, RPL10A 
+	   RPL15, MT-ATP8, RPL14, NPM1, RPL4, RPL18, MT-CO2, NASP, RPL13A, RPS21 
+Negative:  MT-RNR2, RPS6, BNIP3, MIXL1, SERPINE2, IFITM1, PCDH10, NTS, SNHG25, LINC01356 
+	   APLNR, OLFML3, MT-TC, MSX1, DKK4, ZC3HAV1, PDK1, HAPLN1, GAL, ATG12 
+	   HAND1, ENO2, MT-TT, .ENSG00000254584, HAS2, TNNT1, TRIP11, ASPM, SERPINB9, TRDN 
+PC_ 4 
+Positive:  L1TD1, MT-ND6, RPL35, NASP, RPL10A, ACTB, RPL15, RPL24, RPS18, RPS5 
+	   TPT1, RPL26, RPL14, NPM1, TMSB4X, CALM1, RPL8, RPL4, YWHAE, TMSB10 
+	   HNRNPA2B1, RPL18, RPS15, GSTP1, LDHB, HIST1H4C, RPS23, RPS25, HMGA1, HSP90B1 
+Negative:  MYH6, TNNT2, EMC10, MYL7, ACTC1, TTN, MYL4, ANKRD1, NEBL, TNNI1 
+	   NEXN, NPPA, MT-RNR2, SMPX, MYL3, TECRL, NPPB, ACTN2, TNNC1, SORBS2 
+	   PLN, CSRP3, HSPB1, FILIP1, SVIL, TRIM55, PPP1R12B, MYL9, MYBPC3, MALAT1 
+PC_ 5 
+Positive:  MALAT1, RPS13, RPS11, RPS16, RPS20, NAP1L1, HSP90AA1, RPLP2, BEX3, RPL27A 
+	   RPL11, RPL37, NCL, RPL5, NUCKS1, RPL31, RPL27, FN1, RPL19, RPS4X 
+	   RPS3, RPS17, RPL32, TTR, RPL23, RGS5, MT-ND3, RPS12, KRT19, CCDC34 
+Negative:  MT-RNR2, RPL10A, EMC10, RPS18, RPL15, RPL35, MT-ND6, TNNT2, RPL24, NASP 
+	   HSP90B1, RPL26, H3F3B, RPS5, RPL14, TMSB4X, RPL4, MYH6, TPM1, PRRC2C 
+	   RPS15, PNN, L1TD1, ACTC1, RPL18, LDHB, GSTP1, COX7C, RPL8, RPS29 
+19:02:19 UMAP embedding parameters a = 0.9922 b = 1.112
+19:02:19 Read 25770 rows and found 30 numeric columns
+19:02:19 Using Annoy for neighbor search, n_neighbors = 30
+19:02:19 Building Annoy index with metric = cosine, n_trees = 50
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+19:02:25 Writing NN index file to temp file /tmp/jobs/63491926/Rtmp68WiMd/file2930418978d7
+19:02:25 Searching Annoy index using 1 thread, search_k = 3000
+19:02:35 Annoy recall = 100%
+19:02:36 Commencing smooth kNN distance calibration using 1 thread
+19:02:37 Initializing from normalized Laplacian + noise
+19:02:39 Commencing optimization for 200 epochs, with 1141892 positive edges
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+19:03:14 Optimization finished
 PC_ 1 
 Positive:  MT-RNR2, MALAT1, MYH6, RPS13, RACK1, MYL7, RPS16, TMSB10, RPS11, RPLP2 
 	   RPS27A, HSP90B1, RPL12, RPLP0, HSP90AA1, RPS23, RPS20, RPS5, RPL24, RPL27A 
@@ -40,26 +219,23 @@ Positive:  MALAT1, BEX3, NAP1L1, NUCKS1, RPL11, RPL37, ANKRD1, RPL5, EMC10, TNNT
 Negative:  RPL31, RPL27, RPL19, RPS4X, RPS17, MT-RNR2, RPS3, RPL32, RPS27A, RPLP0 
 	   MT-ND3, RPS18, MYH6, IGF2, TECRL, NEBL, NEXN, PRRC2C, PTMA, MT-RNR1 
 	   H3F3B, MYL6, FILIP1, RBM25, MYL4, RPL10A, TMSB4X, MT-TF, RPS5, RPLP2 
-Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
-To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
-This message will be shown once per session
-10:21:16 UMAP embedding parameters a = 0.9922 b = 1.112
-10:21:16 Read 25770 rows and found 30 numeric columns
-10:21:16 Using Annoy for neighbor search, n_neighbors = 30
-10:21:16 Building Annoy index with metric = cosine, n_trees = 50
+19:04:34 UMAP embedding parameters a = 0.9922 b = 1.112
+19:04:34 Read 25770 rows and found 30 numeric columns
+19:04:34 Using Annoy for neighbor search, n_neighbors = 30
+19:04:34 Building Annoy index with metric = cosine, n_trees = 50
 0%   10   20   30   40   50   60   70   80   90   100%
 [----|----|----|----|----|----|----|----|----|----|
 **************************************************|
-10:21:22 Writing NN index file to temp file /tmp/jobs/63465416/RtmpBTJpAo/filea9ee187b3ef7
-10:21:22 Searching Annoy index using 1 thread, search_k = 3000
-10:21:32 Annoy recall = 100%
-10:21:32 Commencing smooth kNN distance calibration using 1 thread
-10:21:33 Initializing from normalized Laplacian + noise
-10:21:35 Commencing optimization for 200 epochs, with 1112438 positive edges
+19:04:40 Writing NN index file to temp file /tmp/jobs/63491926/Rtmp68WiMd/file293040c6cc25
+19:04:40 Searching Annoy index using 1 thread, search_k = 3000
+19:04:50 Annoy recall = 100%
+19:04:51 Commencing smooth kNN distance calibration using 1 thread
+19:04:52 Initializing from normalized Laplacian + noise
+19:04:53 Commencing optimization for 200 epochs, with 1112438 positive edges
 0%   10   20   30   40   50   60   70   80   90   100%
 [----|----|----|----|----|----|----|----|----|----|
 **************************************************|
-10:22:09 Optimization finished
+19:05:28 Optimization finished
 PC_ 1 
 Positive:  MT-RNR2, TNNT2, HIST1H4C, MT-ATP8, MYH6, ACTC1, RPL12, MYL4, RPL38, RPS21 
 	   MYL7, EMC10, RPS29, MDK, RPL14, RPL13A, TTN, HSP90B1, RPL35, SRP14 
@@ -95,20 +271,20 @@ Positive:  MALAT1, BEX3, NAP1L1, RPL11, RPL37, RPL5, EMC10, TNNT2, NUCKS1, ANKRD
 Negative:  MT-RNR2, RPL31, RPL27, RPL19, RPS4X, RPS27A, RPS17, RPS3, RPLP0, RPL32 
 	   IGF2, MT-ND3, COL3A1, RPS18, MYH6, TECRL, NEBL, PRRC2C, IGFBP5, NEXN 
 	   DCN, PTMA, MT-RNR1, MYL6, COL1A2, DSP, GPM6A, MT-TF, TMSB4X, FILIP1 
-10:23:29 UMAP embedding parameters a = 0.9922 b = 1.112
-10:23:29 Read 25770 rows and found 30 numeric columns
-10:23:29 Using Annoy for neighbor search, n_neighbors = 30
-10:23:29 Building Annoy index with metric = cosine, n_trees = 50
+19:06:49 UMAP embedding parameters a = 0.9922 b = 1.112
+19:06:49 Read 25770 rows and found 30 numeric columns
+19:06:49 Using Annoy for neighbor search, n_neighbors = 30
+19:06:49 Building Annoy index with metric = cosine, n_trees = 50
 0%   10   20   30   40   50   60   70   80   90   100%
 [----|----|----|----|----|----|----|----|----|----|
 **************************************************|
-10:23:35 Writing NN index file to temp file /tmp/jobs/63465416/RtmpBTJpAo/filea9ee2d1bbf99
-10:23:35 Searching Annoy index using 1 thread, search_k = 3000
-10:23:45 Annoy recall = 100%
-10:23:45 Commencing smooth kNN distance calibration using 1 thread
-10:23:47 Initializing from normalized Laplacian + noise
-10:23:48 Commencing optimization for 200 epochs, with 1091308 positive edges
+19:06:55 Writing NN index file to temp file /tmp/jobs/63491926/Rtmp68WiMd/file29307272ea3e
+19:06:55 Searching Annoy index using 1 thread, search_k = 3000
+19:07:05 Annoy recall = 100%
+19:07:06 Commencing smooth kNN distance calibration using 1 thread
+19:07:07 Initializing from normalized Laplacian + noise
+19:07:09 Commencing optimization for 200 epochs, with 1091308 positive edges
 0%   10   20   30   40   50   60   70   80   90   100%
 [----|----|----|----|----|----|----|----|----|----|
 **************************************************|
-10:24:22 Optimization finished
+19:07:43 Optimization finished
