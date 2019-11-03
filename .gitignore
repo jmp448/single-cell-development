@@ -1,7 +1,7 @@
-seurat_plots
-rds_objects
-combine_cds_troubleshoot
-workspaces
-monocle_plots
+seurat_plots/
+rds_objects/
+combine_cds_troubleshoot/
+workspaces/
+monocle_plots/
 Rplots.pdf
-error_files
+error_files/
