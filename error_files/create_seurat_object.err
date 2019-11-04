@@ -5,4 +5,5 @@ Registered S3 method overwritten by 'R.oo':
 Warning message:
 In system2(command = python, args = paste0("\"", config_script,  :
   running command ''/home/jpopp/.virtualenvs/r-reticulate/bin/python' "/home/jpopp/R/x86_64-pc-linux-gnu-library/3.6/reticulate/config/config.py" 2>/dev/null' had status 1
-slurmstepd-midway2-0035: error: *** JOB 63510932 ON midway2-0035 CANCELLED AT 2019-11-01T15:17:24 ***
+/tmp/slurmd/job63584023/slurm_script: line 38: 41939 Killed                  Rscript ./R_scripts/create_seurat_object.R $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 $cd2col1 $cd2col2 $cd2col3 $cd2col4 $cd2col5 $cd2col6 $cd3col1 $cd3col2 $cd3col3 $cd3col4 $cd3col5 $cd3col6 $min_cells_per_gene $min_genes_per_cell $mito_threshold $source_files
+slurmstepd-midway2-0032: error: Detected 1 oom-kill event(s) in step 63584023.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
