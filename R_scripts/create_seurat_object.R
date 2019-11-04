@@ -124,7 +124,7 @@ for (i in 1:3) {
 
     demux <- demux[m, ]
 
-    demux$individual <- "doublet"
+    demux$individual <- NA
     demux$individual[which(demux$BEST == "SNG-NA19093")] <- "19093"
     demux$individual[which(demux$BEST == "SNG-NA18912")] <- "18912"
     demux$individual[which(demux$BEST == "SNG-NA18858")] <- "18858"
@@ -135,8 +135,7 @@ for (i in 1:3) {
     ind <- demux$individual
     names(ind) <- demux$BARCODE
 
-    demux$diffday <- "NA"
-
+    demux$diffday <- NA
     # col 1 for all CDs
     if (j == 1) {
       if (i == 1) {
@@ -271,19 +270,18 @@ sc <- merge(CD1col1_lbld, y = c(CD1col2_lbld, CD1col3_lbld, CD1col4_lbld,
 sc$colday <- "colday"
 sc$colday <- substr(sc$orig.ident, 3, 3)
 
-# get rid of high mito
+# get rid of high mito and subset to the cells demuxlet approved
 sc[["percent.mito"]] <- PercentageFeatureSet(sc, pattern = "^MT-")
 sc <- subset(sc, subset = percent.mito < mito_threshold)
+sc <- subset(sc, subset=!is.na(diffday))
+sc <- subset(sc, subset=!is.na(individual))
 
-# Make sure that all metadata are in factor form
-# Create factors
+# Make sure that all metadata are in factor form for later analysis
 colday_levels <- c("1", "2", "3")
 sc$colday <- factor(x=sc$colday, levels=colday_levels, ordered=T)
 diffday_levels <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
-sc <- subset(sc, subset=diffday %in% diffday_levels)
 sc$diffday <- factor(x=sc$diffday, levels=diffday_levels, ordered=T)
-individual_levels <- c("NA19093", "NA18912", "NA18858", "NA18520", "NA18511", "NA18508")
-sc <- subset(sc, subset=individual %in% individual_levels)
+individual_levels <- c("19093", "18912", "18858", "18520", "18511", "18508")
 sc$individual <- factor(x=sc$individual, levels=individual_levels, ordered=T)
 collection_levels <- c("CD1col1", "CD1col2", "CD1col3", "CD1col4", "CD1col5", "CD1col6",
                       "CD2col1", "CD2col2", "CD2col3", "CD2col4", "CD2col5", "CD2col6",
