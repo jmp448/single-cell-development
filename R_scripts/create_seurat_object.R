@@ -54,20 +54,18 @@ for (i in 1:3) {
     expression_matrix <- read.table(rawdata[6*(i-1)+j], header = T, stringsAsFactors = F, row.names = 1)
 
     # remove version numbers from gene IDs
-    for (g in 1:length(rownames(expression_matrix))) {
-      rownames(expression_matrix)[g] <- str_replace(rownames(expression_matrix)[g], pattern = ".[0-9]+$",
+    row.names(expression_matrix) <- str_replace(row.names(expression_matrix), pattern = ".[0-9]+$",
         replacement = "")
-    }
 
     # find genes in geneinfo that are also in cells, and sort by ensemblID
-    genes_present <- geneinfo[geneinfo$ensembl_gene_id %in% rownames(expression_matrix), ]
+    genes_present <- geneinfo[geneinfo$ensembl_gene_id %in% row.names(expression_matrix), ]
     genes_present <- genes_present[order(genes_present$ensembl_gene_id, decreasing = F), ]
 
     # get rid of duplicate ensembl IDs in expression matrix
-    expression_matrix <- expression_matrix[!duplicated(rownames(expression_matrix)),]
+    expression_matrix <- expression_matrix[!duplicated(row.names(expression_matrix)),]
 
     # subset expression matrix to only the genes with info on biomart
-    expression_matrix <- expression_matrix[rownames(expression_matrix) %in% genes_present$ensembl_gene_id,]
+    expression_matrix <- expression_matrix[row.names(expression_matrix) %in% genes_present$ensembl_gene_id,]
 
     # deal with duplicate gene name/symbols (mostly ''s) by identifying the
     # duplicates and then creating a new gene name for them that is
@@ -80,7 +78,7 @@ for (i in 1:3) {
           genes_present$ensembl_gene_id[dupl_genes[m]], sep = ".")
       }
     }
-    rownames(expression_matrix) <- genes_present$hgnc_symbol
+    row.names(expression_matrix) <- genes_present$hgnc_symbol
     assign(paste0("exprs_cd", i, "col", j), expression_matrix)
   }
 }
@@ -116,7 +114,7 @@ for (i in 1:3) {
       i, "/CD", i, "col", j, "/demux/CD", i, "col", j, "_demux.best"), header = T,
       stringsAsFactors = F)
 
-    m <- match(rownames(sc@meta.data), demux$BARCODE)
+    m <- match(row.names(sc@meta.data), demux$BARCODE)
     if (any(is.na(m))) {
       cat(paste0("Not all barcodes are in demuxlet data. Something is wrong in CD",
         i, "col", j, "!\n"))
