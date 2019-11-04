@@ -83,7 +83,7 @@ for (i in 1:3) {
   }
 }
 
-rm(i, j, k, m, expression_matrix, genes_present, duplicates, geneinfo)
+rm(i, j, k, expression_matrix, genes_present, duplicates, geneinfo)
 
 ## Now let's create the individual Seurat objects for each collection.  I do this
 ## first so I can assign individual and diffday labels more easily, before merging
@@ -111,7 +111,7 @@ for (i in 1:3) {
   for (j in 1:6) {
 
     sc <- eval(as.name(paste0("seurat_cd", i, "col", j)))
-    
+
     demux <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/lowpass/CD",
       i, "/CD", i, "col", j, "/demux/CD", i, "col", j, "_demux.best"), header = T,
       stringsAsFactors = F)
@@ -256,11 +256,6 @@ for (i in 1:3) {
 }
 
 rm(i, j, m, dday, ind, demux)
-
-# this is a mess lol but i'm leaving it until I need to find a better way
-
-# if we want to explore the data, can do: table(CD1col1_lbld$individual)
-# table(CD1col1_lbld$diffday)
 
 # merge AFTER giving them individual and diffday labels
 
