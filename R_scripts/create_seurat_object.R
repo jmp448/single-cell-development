@@ -124,7 +124,7 @@ for (i in 1:3) {
 
     demux <- demux[m, ]
 
-    demux$individual <- NA
+    demux$individual <- "doublet"
     demux$individual[which(demux$BEST == "SNG-NA19093")] <- "19093"
     demux$individual[which(demux$BEST == "SNG-NA18912")] <- "18912"
     demux$individual[which(demux$BEST == "SNG-NA18858")] <- "18858"
@@ -135,7 +135,7 @@ for (i in 1:3) {
     ind <- demux$individual
     names(ind) <- demux$BARCODE
 
-    demux$diffday <- NA
+    demux$diffday <- "NA"
 
     # col 1 for all CDs
     if (j == 1) {
@@ -246,7 +246,7 @@ for (i in 1:3) {
     }
 
     dday <- demux$diffday
-    names(tmp_dday) <- demux$BARCODE
+    names(dday) <- demux$BARCODE
 
     sc <- AddMetaData(sc, ind, col.name = "individual")
     sc <- AddMetaData(sc, dday, col.name = "diffday")
