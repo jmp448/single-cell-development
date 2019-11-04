@@ -54,8 +54,10 @@ for (i in 1:3) {
     expression_matrix <- read.table(rawdata[6*(i-1)+j], header = T, stringsAsFactors = F, row.names = 1)
 
     # remove version numbers from gene IDs
-    rownames(expression_matrix) <- str_replace(rownames(expression_matrix), pattern = ".[0-9]+$",
-      replacement = "")
+    for (g in 1:length(rownames(expression_matrix))) {
+      rownames(expression_matrix)[g] <- str_replace(rownames(expression_matrix)[g], pattern = ".[0-9]+$",
+        replacement = "")
+    }
 
     # find genes in geneinfo that are also in cells, and sort by ensemblID
     genes_present <- geneinfo[geneinfo$ensembl_gene_id %in% rownames(expression_matrix), ]
