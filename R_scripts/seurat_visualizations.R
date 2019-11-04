@@ -128,13 +128,13 @@ library(Seurat)
 #
 plots_loc <- "./seurat_plots/"
 
-
 ### SCTransform Mitoregress
 sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_mitoregress_processed.RDS")
 
 # PCA diffday
 png("./seurat_plots/lowpass_sctransform_mitoregress_PCA_diffday.png", width=800, height=600)
-PCAPlot(sc, group.by="diffday")
+plt <- PCAPlot(sc, group.by="diffday")
+print(plt)
 dev.off()
 
 # PCA individual
