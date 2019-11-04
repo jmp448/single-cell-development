@@ -132,13 +132,12 @@ plots_loc <- "./seurat_plots/"
 sc <- readRDS("./rds_objects/seurat_obj_lowpass_sctransform_mitoregress_processed.RDS")
 
 # PCA diffday
-png("./seurat_plots/lowpass_sctransform_mitoregress_PCA_diffday.png", width=800, height=600)
-plt <- PCAPlot(sc, group.by="diffday")
-print(plt)
+png(paste0(plots_loc,"lowpass_sctransform_mitoregress_PCA_diffday.png"), width=800, height=600)
+PCAPlot(sc, group.by="diffday")
 dev.off()
 
 # PCA individual
-png(filename=paste0(plots_loc, "lowpass_sctransform_mitoregress_PCA_indiv.png"), width=800, height=600)
+png(paste0(plots_loc, "lowpass_sctransform_mitoregress_PCA_indiv.png"), width=800, height=600)
 PCAPlot(sc, group.by="individual")
 dev.off()
 
