@@ -110,6 +110,8 @@ rm(expression_matrix, sc, i, j)
 for (i in 1:3) {
   for (j in 1:6) {
 
+    sc <- eval(as.name(paste0("seurat_cd", i, "col", j)))
+    
     demux <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/lowpass/CD",
       i, "/CD", i, "col", j, "/demux/CD", i, "col", j, "_demux.best"), header = T,
       stringsAsFactors = F)
@@ -246,7 +248,6 @@ for (i in 1:3) {
     dday <- demux$diffday
     names(tmp_dday) <- demux$BARCODE
 
-    sc <- eval(as.name(paste0("seurat_cd", i, "col", j)))
     sc <- AddMetaData(sc, ind, col.name = "individual")
     sc <- AddMetaData(sc, dday, col.name = "diffday")
 
