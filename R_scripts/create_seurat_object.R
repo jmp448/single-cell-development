@@ -137,8 +137,8 @@ for (i in 1:3) {
 
     SObject <- eval(as.name(paste0("CD", i, "col", j, "SObj")))
 
-    demux_temp <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/lowpass/CD",
-      i, "/CD", i, "col", j, "/demux/CD", i, "col", j, "_demux.best"), header = T,
+    demux_temp <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/fulldata/CD",
+      i, "/CD", i, "col", j, "/demux/hpCD", i, "col", j, "_demux.best"), header = T,
       stringsAsFactors = F)
 
     # demux_temp <- demux_temp[-1,]
@@ -307,7 +307,7 @@ table(all_cols_S$colday)
 
 # get rid of high mito
 all_cols_S[["percent.mito"]] <- PercentageFeatureSet(all_cols_S, pattern = "^MT-")
-all_cols_S <- subset(all_cols_S, subset = percent.mito < 30)
+all_cols_S <- subset(all_cols_S, subset = percent.mito < mito_threshold)
 
 # Make sure that all metadata are in factor form
 # Create factors
@@ -326,4 +326,4 @@ all_cols_S$orig.ident <- factor(x=all_cols_S$orig.ident, levels=collection_level
 
 
 # (Josh) Save to rds file
-saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_lowpass.RDS")
+saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_fulldata.RDS")

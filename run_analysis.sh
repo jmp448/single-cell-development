@@ -1,6 +1,6 @@
 ##### INPUT FILES #####
 
-source_files="lowpass"
+source_files="fulldata"
 
 # LOW PASS DATA
 # If you want to use the low pass data, set this to true, otherwise set to false
@@ -54,7 +54,7 @@ min_genes_per_cell=200  # minimum num genes for a cell to be included
 #TODO incorporate mito threshold boolean into pipeline
 mito_threshold=30  # what is the percentage threshold cutoff for mito counts?
 
-if true; then
+if false; then
    rm ./error_files/all_in_one.out
    rm ./error_files/all_in_one.err
    sbatch ./bash_scripts/all_in_one.sh $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 \
@@ -65,7 +65,7 @@ if true; then
 fi
 
 
-if false; then
+if true; then
    rm ./error_files/create_seurat_object.out
    rm ./error_files/create_seurat_object.err
    sbatch ./bash_scripts/create_seurat_object.sh $cd1col1 $cd1col2 $cd1col3 $cd1col4 $cd1col5 $cd1col6 \
