@@ -54,15 +54,15 @@ for (i in 1:3) {
     expression_matrix <- read.table(rawdata[6*(i-1)+j], header = T, stringsAsFactors = F, row.names = 1)
 
     # remove version numbers from gene IDs
-    row.names(expression_matrix) <- str_replace(row.names(expression_matrix), pattern = ".[0-9]+$",
+    genes_measured <- str_replace(row.names(expression_matrix), pattern = ".[0-9]+$",
         replacement = "")
+    # get rid of duplicate ensembl IDs in expression matrix
+    expression_matrix <- expression_matrix[!duplicated(genes_measured),]
+    rm(genes_measured)
 
     # find genes in geneinfo that are also in cells, and sort by ensemblID
     genes_present <- geneinfo[geneinfo$ensembl_gene_id %in% row.names(expression_matrix), ]
     genes_present <- genes_present[order(genes_present$ensembl_gene_id, decreasing = F), ]
-
-    # get rid of duplicate ensembl IDs in expression matrix
-    expression_matrix <- expression_matrix[!duplicated(row.names(expression_matrix)),]
 
     # subset expression matrix to only the genes with info on biomart
     expression_matrix <- expression_matrix[row.names(expression_matrix) %in% genes_present$ensembl_gene_id,]
@@ -83,7 +83,7 @@ for (i in 1:3) {
   }
 }
 
-rm(i, j, k, m, expression_matrix, genes_present, duplicates)
+rm(i, j, k, m, expression_matrix, genes_present, duplicates, geneinfo)
 
 ## Now let's create the individual Seurat objects for each collection.  I do this
 ## first so I can assign individual and diffday labels more easily, before merging
