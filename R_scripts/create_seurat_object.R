@@ -18,6 +18,7 @@ if (load_from_bash) {
   min_cells_per_gene <- args[19]  # minimum num cells in which a gene must appear
   min_genes_per_cell <- args[20]  # minimum num genes for a cell to be included
   mito_threshold <- args[21]  # what is the threshold for mito cutoff?
+  source_files <- args[22]
 } else {
   print("Going with R file access")
   rawdata <- c("/project2/gilad/reem/singlecellCM/round1/lowpass/CD1/CD1col1/output/dge_data/YG-RE1-Drop-CD1col1_S1_gene_counts.tsv.gz",
