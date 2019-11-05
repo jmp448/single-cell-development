@@ -8,7 +8,7 @@ library(Seurat)
 
 ## My goal is to combine all 18 collections into a single Seurat object.  First, I
 ## need to read in the raw data for all collections.
-load_from_bash <- T
+load_from_bash <- F
 if (load_from_bash) {
   args = commandArgs(trailingOnly = TRUE)
   rawdata <- c()
@@ -54,11 +54,12 @@ for (i in 1:3) {
     expression_matrix <- read.table(rawdata[6*(i-1)+j], header = T, stringsAsFactors = F, row.names = 1)
 
     # remove version numbers from gene IDs
-    genes_measured <- str_replace(row.names(expression_matrix), pattern = ".[0-9]+$",
+    genes_observed <- str_replace(row.names(expression_matrix), pattern = ".[0-9]+$",
         replacement = "")
     # get rid of duplicate ensembl IDs in expression matrix
-    expression_matrix <- expression_matrix[!duplicated(genes_measured),]
-    rm(genes_measured)
+    expression_matrix <- expression_matrix[!duplicated(genes_observed),]
+    row.names(expression_matrix) <- genes_observed
+    rm(genes_observed)
 
     # find genes in geneinfo that are also in cells, and sort by ensemblID
     genes_present <- geneinfo[geneinfo$ensembl_gene_id %in% row.names(expression_matrix), ]
