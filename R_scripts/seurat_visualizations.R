@@ -2,7 +2,6 @@ library(Seurat)
 
 plots_loc <- "./seurat_plots/"
 
-
 ### SCTransform
 sc <- readRDS("./rds_objects/old_seurat_obj_lowpass_processed.rds")
 

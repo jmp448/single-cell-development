@@ -38,4 +38,3 @@ srun Rscript ./R_scripts/create_seurat_object.R $cd1col1 $cd1col2 $cd1col3 $cd1c
                         $source_files 0
 srun Rscript ./R_scripts/seurat_normalization.R $source_files 1
 srun Rscript ./R_scripts/seurat_dimreduc.R  2
-srun Rscript ./R_scripts/seurat_visualizations.R 3
