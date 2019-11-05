@@ -9,4 +9,4 @@ module load R
 
 source_files="$1"
 
-Rscript ./R_scripts/monocle_dimreduc.R source_files
+Rscript ./R_scripts/monocle_dimreduc.R $source_files
