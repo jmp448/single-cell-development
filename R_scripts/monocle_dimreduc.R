@@ -29,7 +29,7 @@ source_files = args[1]
 
 m <- readRDS(paste0("./rds_objects/monocle_from_seurat_", source_files, "_sctransform_mitoregress.RDS"))
 m <- preprocess_cds(m, method="PCA", norm_method="none", scaling=F)
-m <- reduce_dimension(m, reduction_method="UMAP", preprocess_method="PCA", umap.min_dist=0.1, umap.n_neighbors=30L, umap.fast_sgd=F)
+m <- reduce_dimension(m, reduction_method="UMAP", preprocess_method="PCA", umap.min_dist=0.3, umap.n_neighbors=30L, umap.fast_sgd=F)
 saveRDS(m, paste0("./rds_objects/monocle_from_seurat_", source_files, "_sctransform_mitoregress_processed.RDS"))
 rm(list=ls())
 #
