@@ -81,42 +81,19 @@ for (i in 1:3) {
       }
     }
     row.names(expression_matrix) <- genes_present$hgnc_symbol
-    assign(paste0("exprs_cd", i, "col", j), expression_matrix)
-  }
-}
-
-rm(i, j, k, expression_matrix, genes_present, duplicates, geneinfo)
-
-## Now let's create the individual Seurat objects for each collection.  I do this
-## first so I can assign individual and diffday labels more easily, before merging
-## and subsetting the object.
-
-for (i in 1:3) {
-  for (j in 1:6) {
-    expression_matrix <- eval(as.name(paste0("exprs_cd", i, "col", j)))
+    rm(genes_present, duplicates)
     sc <- CreateSeuratObject(expression_matrix, min.cells = min_cells_per_gene, min.features = min_genes_per_cell)
-    assign(paste0("seurat_cd", i, "col", j), sc)
-  }
-}
+    rm(expression_matrix)
 
-rm(list = ls(pattern = "exprs_"))
-rm(expression_matrix, sc, i, j)
-
-# these are Seurat objects for each collection with gene symbols!  filtered by
-# only genes in at least 3 cells and only cells with at least 200 genes
-
-## The next step is assigning labels for 'individual' and 'diffday' to each cell
-## barcode.  I do this using the results from demuxlet, which was run previously
-## on the data from each collection.
-
-for (i in 1:3) {
-  for (j in 1:6) {
-
-    sc <- eval(as.name(paste0("seurat_cd", i, "col", j)))
-
-    demux <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/lowpass/CD",
+    if (source_files == "lowpass") {
+      demux <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/lowpass/CD",
       i, "/CD", i, "col", j, "/demux/CD", i, "col", j, "_demux.best"), header = T,
       stringsAsFactors = F)
+    } else {
+      demux <- read.table(paste0("/project2/gilad/reem/singlecellCM/round1/fulldata/CD",
+      i, "/CD", i, "col", j, "/demux/hpCD", i, "col", j, "_demux.best"), header = T,
+      stringsAsFactors = F)
+    }
 
     m <- match(row.names(sc@meta.data), demux$BARCODE)
     if (any(is.na(m))) {
@@ -253,10 +230,11 @@ for (i in 1:3) {
     sc <- AddMetaData(sc, dday, col.name = "diffday")
 
     assign(paste0("CD", i, "col", j, "_lbld"), sc)
+    rm(sc)
   }
 }
 
-rm(i, j, m, dday, ind, demux)
+rm(i, j, m, dday, ind, demux, geneinfo)
 
 # merge AFTER giving them individual and diffday labels
 
@@ -277,7 +255,7 @@ sc$percent.mito <- PercentageFeatureSet(sc, pattern = "^MT-")
 sc <- subset(sc, subset = percent.mito < mito_threshold)
 
 diffdays <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
-sc <- subset(sc, subset=diffday %in% diffday_levels)
+sc <- subset(sc, subset=diffday %in% diffdays)
 individuals <- c("19093", "18912", "18858", "18520", "18511", "18508")
 sc <- subset(sc, subset=individual %in% individuals)
 coldays <- c("CD1", "CD2", "CD3")
