@@ -21,3 +21,9 @@ plt <- plot_cells(cds,
            label_leaves=F,
            label_branch_points=F)
 print(plt)
+plt <- plot_genes_in_pseudotime(cds["EPCAM",], min_expr = NULL, cell_size = 0.75,nrow = NULL, ncol = 1, panel_order = NULL,color_cells_by = "pseudotime",trend_formula = "~ splines::ns(pseudotime, df=3)",label_by_short_name = TRUE, vertical_jitter = NULL,horizontal_jitter = NULL)
+print(plt)
+plt <- plot_genes_in_pseudotime(cds["TNNT2",], min_expr = NULL, cell_size = 0.75,nrow = NULL, ncol = 1, panel_order = NULL,color_cells_by = "pseudotime",trend_formula = "~ splines::ns(pseudotime, df=3)",label_by_short_name = TRUE, vertical_jitter = NULL,horizontal_jitter = NULL)
+print(plt)
+plt <- plot_genes_in_pseudotime(cds["IGF2",], min_expr = NULL, cell_size = 0.75,nrow = NULL, ncol = 1, panel_order = NULL,color_cells_by = "pseudotime",trend_formula = "~ splines::ns(pseudotime, df=3)",label_by_short_name = TRUE, vertical_jitter = NULL,horizontal_jitter = NULL)
+print(plt)
