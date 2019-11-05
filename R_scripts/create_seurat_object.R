@@ -8,7 +8,7 @@ library(Seurat)
 
 ## My goal is to combine all 18 collections into a single Seurat object.  First, I
 ## need to read in the raw data for all collections.
-load_from_bash <- F
+load_from_bash <- T
 if (load_from_bash) {
   args = commandArgs(trailingOnly = TRUE)
   rawdata <- c()
@@ -63,6 +63,7 @@ for (i in 1:3) {
 
     # find genes in geneinfo that are also in cells, and sort by ensemblID
     genes_present <- geneinfo[geneinfo$ensembl_gene_id %in% row.names(expression_matrix), ]
+    genes_present <- genes_present[!duplicated(genes_present$ensembl_gene_id),]
     genes_present <- genes_present[order(genes_present$ensembl_gene_id, decreasing = F), ]
 
     # subset expression matrix to only the genes with info on biomart
