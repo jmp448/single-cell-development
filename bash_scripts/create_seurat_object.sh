@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --time=05:00:00
 #SBATCH --mem=100G
+#SBATCH --partition=bigmem2
 #SBATCH --output=./error_files/create_seurat_object.out
 #SBATCH --error=./error_files/create_seurat_object.err
 #SBATCH --job-name=create_seurat_object
