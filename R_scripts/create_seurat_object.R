@@ -94,7 +94,7 @@ rm(i, j, k, expression_matrix, genes_present, duplicates, geneinfo)
 for (i in 1:3) {
   for (j in 1:6) {
     expression_matrix <- eval(as.name(paste0("exprs_cd", i, "col", j)))
-    sc <- CreateSeuratObject(expression_matrix, min.cells = 3, min.features = 200)
+    sc <- CreateSeuratObject(expression_matrix, min.cells = min_cells_per_gene, min.features = min_genes_per_cell)
     assign(paste0("seurat_cd", i, "col", j), sc)
   }
 }
@@ -273,22 +273,24 @@ sc$colday <- "colday"
 sc$colday <- substr(sc$orig.ident, 3, 3)
 
 # get rid of high mito and subset to the cells demuxlet approved
-sc[["percent.mito"]] <- PercentageFeatureSet(sc, pattern = "^MT-")
+sc$percent.mito <- PercentageFeatureSet(sc, pattern = "^MT-")
 sc <- subset(sc, subset = percent.mito < mito_threshold)
-sc <- subset(sc, subset=!is.na(diffday))
-sc <- subset(sc, subset=!is.na(individual))
+
+diffdays <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
+sc <- subset(sc, subset=diffday %in% diffday_levels)
+individuals <- c("19093", "18912", "18858", "18520", "18511", "18508")
+sc <- subset(sc, subset=individual %in% individuals)
+coldays <- c("CD1", "CD2", "CD3")
+collections <- c("CD1col1", "CD1col2", "CD1col3", "CD1col4", "CD1col5", "CD1col6",
+                       "CD2col1", "CD2col2", "CD2col3", "CD2col4", "CD2col5", "CD2col6",
+                       "CD3col1", "CD3col2", "CD3col3", "CD3col4", "CD3col5", "CD3col6")
+
 
 # Make sure that all metadata are in factor form for later analysis
-colday_levels <- c("1", "2", "3")
-sc$colday <- factor(x=sc$colday, levels=colday_levels, ordered=T)
-diffday_levels <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
-sc$diffday <- factor(x=sc$diffday, levels=diffday_levels, ordered=T)
-individual_levels <- c("19093", "18912", "18858", "18520", "18511", "18508")
-sc$individual <- factor(x=sc$individual, levels=individual_levels, ordered=T)
-collection_levels <- c("CD1col1", "CD1col2", "CD1col3", "CD1col4", "CD1col5", "CD1col6",
-                      "CD2col1", "CD2col2", "CD2col3", "CD2col4", "CD2col5", "CD2col6",
-                      "CD3col1", "CD3col2", "CD3col3", "CD3col4", "CD3col5", "CD3col6")
-sc$orig.ident <- factor(x=sc$orig.ident, levels=collection_levels, ordered=T)
+sc$colday <- factor(x=sc$colday, levels=coldays, ordered=T)
+sc$diffday <- factor(x=sc$diffday, levels=diffdays, ordered=T)
+sc$individual <- factor(x=sc$individual, levels=individuals, ordered=T)
+sc$orig.ident <- factor(x=sc$orig.ident, levels=collections, ordered=T)
 
 
 # (Josh) Save to rds file
