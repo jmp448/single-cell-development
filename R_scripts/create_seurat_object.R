@@ -298,7 +298,7 @@ all_cols_S <- merge(CD1col1_lbld, y = c(CD1col2_lbld, CD1col3_lbld, CD1col4_lbld
   CD3col5_lbld, CD3col6_lbld), add.cell.ids = c("CD1col1", "CD1col2", "CD1col3",
   "CD1col4", "CD1col5", "CD1col6", "CD2col1", "CD2col2", "CD2col3", "CD2col4",
   "CD2col5", "CD2col6", "CD3col1", "CD3col2", "CD3col3", "CD3col4", "CD3col5",
-  "CD3col6"), project = "CMdiff_round1_lowpass")
+  "CD3col6"))
 
 # Assign colday to the cells
 all_cols_S$colday <- "colday"
@@ -307,7 +307,7 @@ table(all_cols_S$colday)
 
 # get rid of high mito
 all_cols_S[["percent.mito"]] <- PercentageFeatureSet(all_cols_S, pattern = "^MT-")
-all_cols_S <- subset(all_cols_S, subset = percent.mito < mito_threshold)
+# all_cols_S <- subset(all_cols_S, subset = percent.mito < mito_threshold)
 
 # Make sure that all metadata are in factor form
 # Create factors
@@ -326,4 +326,4 @@ all_cols_S$orig.ident <- factor(x=all_cols_S$orig.ident, levels=collection_level
 
 
 # (Josh) Save to rds file
-saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_fulldata.RDS")
+saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_fulldata_allmito.RDS")
