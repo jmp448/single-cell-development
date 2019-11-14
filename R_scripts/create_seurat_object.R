@@ -151,138 +151,140 @@ for (i in 1:3) {
 
     demux_temp <- demux_temp[m, ]
 
-    demux_temp$individual <- "doublet"
-    demux_temp$individual[which(demux_temp$BEST == "SNG-NA19093")] <- "NA19093"
-    demux_temp$individual[which(demux_temp$BEST == "SNG-NA18912")] <- "NA18912"
-    demux_temp$individual[which(demux_temp$BEST == "SNG-NA18858")] <- "NA18858"
-    demux_temp$individual[which(demux_temp$BEST == "SNG-NA18520")] <- "NA18520"
-    demux_temp$individual[which(demux_temp$BEST == "SNG-NA18511")] <- "NA18511"
-    demux_temp$individual[which(demux_temp$BEST == "SNG-NA18508")] <- "NA18508"
-
+    demux_temp$individual <- demux_temp$BEST
+    # demux_temp$individual[which(demux_temp$BEST == "SNG-NA19093")] <- "NA19093"
+    # demux_temp$individual[which(demux_temp$BEST == "SNG-NA18912")] <- "NA18912"
+    # demux_temp$individual[which(demux_temp$BEST == "SNG-NA18858")] <- "NA18858"
+    # demux_temp$individual[which(demux_temp$BEST == "SNG-NA18520")] <- "NA18520"
+    # demux_temp$individual[which(demux_temp$BEST == "SNG-NA18511")] <- "NA18511"
+    # demux_temp$individual[which(demux_temp$BEST == "SNG-NA18508")] <- "NA18508"
+    #
     tmp_ind <- demux_temp$individual
     names(tmp_ind) <- demux_temp$BARCODE
 
-    demux_temp$diffday <- "NA"
-
-    # col 1 for all CDs
-    if (j == 1) {
-      if (i == 1) {
-        demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 3"
-        demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 1"
-      } else if (i == 2) {
-        demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 11"
-        demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 5"
-      } else if (i == 3) {
-        demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 15"
-        demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 11"
-        # add day 0 col1 here
-        demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 0"
-      }
-    }
-
-    # col 2 for all CDs
-    if (j == 2) {
-      if (i == 1) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 3"
-        demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 1"
-      } else if (i == 2) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 11"
-        demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 5"
-      } else if (i == 3) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 15"
-        demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 11"
-        ## add day 0 col 2
-        demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 0"
-      }
-    }
-
-    # col 3 for all CDs
-    if (j == 3) {
-      if (i == 1) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 3"
-        demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 1"
-      } else if (i == 2) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 11"
-        demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 5"
-      } else if (i == 3) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 15"
-        demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 11"
-        # add day 0 col 3
-        demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 0"
-      }
-    }
-
-    # col 4 for all CDs
-    if (j == 4) {
-      if (i == 1) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 3"
-        demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 1"
-      } else if (i == 2) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 11"
-        demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 5"
-      } else if (i == 3) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 15"
-        demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 11"
-        # add day 0 col 4
-        demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 0"
-      }
-    }
-
-    # col 5 for all CDs
-    if (j == 5) {
-      if (i == 1) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 3"
-        demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 1"
-      } else if (i == 2) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 11"
-        demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 5"
-      } else if (i == 3) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 15"
-        demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 11"
-        # add day 0 col 5
-        demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 0"
-      }
-    }
-
-    # col 6 for all CDs
-    if (j == 6) {
-      if (i == 1) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 3"
-        demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 1"
-      } else if (i == 2) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 11"
-        demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 7"
-        demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 5"
-      } else if (i == 3) {
-        demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 15"
-        demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 11"
-        # add day 0 col 6
-        demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 0"
-      }
-    }
-
-    tmp_dday <- demux_temp$diffday
-    names(tmp_dday) <- demux_temp$BARCODE
+    # demux_temp$diffday <- "NA"
+    #
+    #
+    # # col 1 for all CDs
+    # if (j == 1) {
+    #   if (i == 1) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 3"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 1"
+    #   } else if (i == 2) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 11"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 5"
+    #   } else if (i == 3) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 15"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 11"
+    #     # add day 0 col1 here
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 0"
+    #   }
+    # }
+    #
+    # # col 2 for all CDs
+    # if (j == 2) {
+    #   if (i == 1) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 3"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 1"
+    #   } else if (i == 2) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 11"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 5"
+    #   } else if (i == 3) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 15"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 11"
+    #     ## add day 0 col 2
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 0"
+    #   }
+    # }
+    #
+    # # col 3 for all CDs
+    # if (j == 3) {
+    #   if (i == 1) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 3"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 1"
+    #   } else if (i == 2) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 11"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 5"
+    #   } else if (i == 3) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 15"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 11"
+    #     # add day 0 col 3
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 0"
+    #   }
+    # }
+    #
+    # # col 4 for all CDs
+    # if (j == 4) {
+    #   if (i == 1) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 3"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 1"
+    #   } else if (i == 2) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 11"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 5"
+    #   } else if (i == 3) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18520")] <- "Day 15"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 11"
+    #     # add day 0 col 4
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 0"
+    #   }
+    # }
+    #
+    # # col 5 for all CDs
+    # if (j == 5) {
+    #   if (i == 1) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 3"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 1"
+    #   } else if (i == 2) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 11"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 5"
+    #   } else if (i == 3) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18508")] <- "Day 15"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 11"
+    #     # add day 0 col 5
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 0"
+    #   }
+    # }
+    #
+    # # col 6 for all CDs
+    # if (j == 6) {
+    #   if (i == 1) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 3"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 1"
+    #   } else if (i == 2) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 11"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 7"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18912")] <- "Day 5"
+    #   } else if (i == 3) {
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18511")] <- "Day 15"
+    #     demux_temp$diffday[which(demux_temp$individual == "NA18858")] <- "Day 11"
+    #     # add day 0 col 6
+    #     demux_temp$diffday[which(demux_temp$individual == "NA19093")] <- "Day 0"
+    #   }
+    # }
+    #
+    # tmp_dday <- demux_temp$diffday
+    # names(tmp_dday) <- demux_temp$BARCODE
 
     SObject <- AddMetaData(SObject, tmp_ind, col.name = "individual")
-    SObject <- AddMetaData(SObject, tmp_dday, col.name = "diffday")
+    # SObject <- AddMetaData(SObject, tmp_dday, col.name = "diffday")
 
     assign(paste0("CD", i, "col", j, "_lbld"), SObject)
   }
 }
 
-rm(i, j, m, tmp_dday, tmp_ind, SObject, demux_temp)
+# rm(i, j, m, tmp_dday, tmp_ind, SObject, demux_temp)
+rm(i, j, m, demux_temp)
 rm(list = ls(pattern = "SObj"))
 
 # this is a mess lol but i'm leaving it until I need to find a better way
@@ -313,12 +315,12 @@ all_cols_S[["percent.mito"]] <- PercentageFeatureSet(all_cols_S, pattern = "^MT-
 # Create factors
 colday_levels <- c("1", "2", "3")
 all_cols_S$colday <- factor(x=all_cols_S$colday, levels=colday_levels, ordered=T)
-diffday_levels <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
-all_cols_S <- subset(all_cols_S, subset=diffday %in% diffday_levels)
-all_cols_S$diffday <- factor(x=all_cols_S$diffday, levels=diffday_levels, ordered=T)
-individual_levels <- c("NA19093", "NA18912", "NA18858", "NA18520", "NA18511", "NA18508")
-all_cols_S <- subset(all_cols_S, subset=individual %in% individual_levels)
-all_cols_S$individual <- factor(x=all_cols_S$individual, levels=individual_levels, ordered=T)
+# diffday_levels <- c("Day 0", "Day 1", "Day 3", "Day 5", "Day 7", "Day 11", "Day 15")
+# all_cols_S <- subset(all_cols_S, subset=diffday %in% diffday_levels)
+# all_cols_S$diffday <- factor(x=all_cols_S$diffday, levels=diffday_levels, ordered=T)
+# individual_levels <- c("NA19093", "NA18912", "NA18858", "NA18520", "NA18511", "NA18508")
+# all_cols_S <- subset(all_cols_S, subset=individual %in% individual_levels)
+# all_cols_S$individual <- factor(x=all_cols_S$individual, levels=individual_levels, ordered=T)
 collection_levels <- c("CD1col1", "CD1col2", "CD1col3", "CD1col4", "CD1col5", "CD1col6",
                       "CD2col1", "CD2col2", "CD2col3", "CD2col4", "CD2col5", "CD2col6",
                       "CD3col1", "CD3col2", "CD3col3", "CD3col4", "CD3col5", "CD3col6")
@@ -326,4 +328,4 @@ all_cols_S$orig.ident <- factor(x=all_cols_S$orig.ident, levels=collection_level
 
 
 # (Josh) Save to rds file
-saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_fulldata_allmito.RDS")
+saveRDS(all_cols_S, file = "./rds_objects/seurat_obj_fulldata_doublets.RDS")
