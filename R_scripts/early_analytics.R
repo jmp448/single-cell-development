@@ -4,16 +4,44 @@ library(Seurat)
 library(stringr)
 
 # Specify folder to put all plots
-plots_loc <- "./plots/"
+plots_loc <- "./analytics/"
 
-create_plot_png <- function(plt, filename, w = 480, h = 480) {
+create_plot_png <- function(plt, filename, w = 800, h = 600, t=NA) {
+  if (!is.na(t)) {
+    plt <- plt + title(t)
+  }
   print(plt)
   dev.copy(png, paste0(plots_loc, filename), width = w, height = h)
   dev.off()
 }
 
 # Upload seurat file
-sc <- readRDS("./rds_objects/sc_fulldata.RDS")
+sc <- readRDS("./rds_objects/seurat_obj_fulldata_allmito.RDS")
+
+# Barplots for cell counts
+plt <- barplot(table(sc$diffday), xlab="Differentiation Day", ylab="Cell Count")
+create_plot_png(plt, "cells_diffday_bar.png")
+cells_over_time <- table(sc$individual, sc$diffday)
+for (ind in levels(sc$individual)) {
+  plt <- barplot(cells_over_time[ind,], xlab="Differentiation Day", ylab="Cell Count")
+  create_plot_png(plt, paste0("cells_diffday_bar_", ind, ".png"), t=ind)
+}
+
+# Violin Plots for gene counts
+plt <- VlnPlot(sc, features="nFeature_RNA", group.by="diffday", pt.size=0)
+create_plot_png(plt, "genes_diffday_vln.png", w=1000)
+plt <- VlnPlot(sc, features="nFeature_RNA", group.by="orig.ident", pt.size=0)
+create_plot_png(plt, "genes_col_vln.png", w=1000)
+plt <- VlnPlot(sc, features="nFeature_RNA", split.by="individual", group.by="diffday", pt.size=0)
+create_plot_png(plt, "genes_diffday_splitbyind_vln.png", w=1000)
+
+# Violin Plots for mito counts
+plt <- VlnPlot(sc, features="percent.mito", group.by="diffday", pt.size=0)
+create_plot_png(plt, "mito_diffday_vln.png", w=1000)
+plt <- VlnPlot(sc, features="percent.mito", group.by="orig.ident", pt.size=0)
+create_plot_png(plt, "mito_col_vln.png", w=1000)
+plt <- VlnPlot(sc, features="percent.mito", split.by="individual", group.by="diffday", pt.size=0)
+create_plot_png(plt, "mito_diffday_splitbyind_vln.png", w=1000)
 
 # Create a new seurat object for each cell line
 Idents(sc) <- "individual"
