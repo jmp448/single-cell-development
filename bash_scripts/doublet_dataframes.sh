@@ -7,4 +7,4 @@
 
 module load R
 
-Rscript doublet_analytics.R
+Rscript ./R_scripts/doublet_dataframes.R
